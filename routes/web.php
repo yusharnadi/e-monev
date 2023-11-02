@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KinerjaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('kinerja', KinerjaController::class);
+
+Route::get('logout', [])->name('logout');
+Route::get('/dashboard', [])->name('dashboard');
