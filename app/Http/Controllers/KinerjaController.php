@@ -17,8 +17,14 @@ class KinerjaController extends Controller
      */
     public function index()
     {
-        $kinerja = $this->kinerjaService->getAll();
-//        return response()->json($kinerja, 200);
+        // $kinerja = $this->kinerjaService->getAll();
+        $kinerja = [
+            ['id' => 1, 'tahun' => 2022, 'periode' => 'Tahunan'],
+            ['id' => 2, 'tahun' => 2021, 'periode' => 'Tahunan'],
+            ['id' => 3, 'tahun' => 2021, 'periode' => 'Triwulan I'],
+            ['id' => 3, 'tahun' => 2021, 'periode' => 'Triwulan II'],
+            ['id' => 3, 'tahun' => 2021, 'periode' => 'Triwulan III'],
+        ];
         return view('kinerja.index', ['kinerjas' => $kinerja]);
     }
 

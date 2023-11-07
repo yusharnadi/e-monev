@@ -20,16 +20,26 @@
                         <tr>
                             <th>Tahun</th>
                             <th>Periode</th>
-                            <th style="width: 40px;">action</th>
+                            <th style="width: 150px;">Created At</th>
+                            <th style="width: 90px;">action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($kinerjas as $kinerja)
                             <tr>
-                                <td>{{$kinerja->tahun}}</td>
-                                <td>{{$kinerja->periode}}</td>
+                                <td>{{$kinerja['tahun']}}</td>
                                 <td>
-                                    <a href="{{route('kinerja.edit', kinerja->id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                    @if ($kinerja['periode'] == "Tahunan")
+                                        <span class="badge badge-primary">{{$kinerja['periode']}}</span>
+                                    @else
+                                    <span class="badge badge-secondary">{{$kinerja['periode']}}</span>
+                                    @endif
+                                </td>
+                                <td>{{now()}}</td>
+                                <td>
+                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

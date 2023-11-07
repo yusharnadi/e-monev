@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::resource('kinerja', KinerjaController::class);
+Route::resource('users', KinerjaController::class);
+Route::resource('role', KinerjaController::class);
 
 Route::get('logout', [])->name('logout');
 Route::get('/dashboard', [])->name('dashboard');
