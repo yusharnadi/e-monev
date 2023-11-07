@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KinerjaController;
+use App\Http\Controllers\PdamReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('kinerja', KinerjaController::class);
+Route::resource('pdam-report', PdamReportController::class);
 Route::resource('users', KinerjaController::class);
 Route::resource('role', KinerjaController::class);
 

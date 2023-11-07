@@ -1,14 +1,14 @@
 @extends('layouts.admin-master')
-@section('page-title', 'Kinerja PDAM')
+@section('page-title', 'Upload Laporan Bulanan PDAM')
 @section('page-heading')
-    <h1>Kinerja PDAM</h1>
+    <h1>Upload Laporan Bulanan PDAM</h1>
 @endsection
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('kinerja.create')}}" class="btn btn-info mb-2">Tambah Data</a>
+                    <a href="{{route('pdam-report.create')}}" class="btn btn-info mb-2">Tambah Data</a>
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
@@ -19,27 +19,23 @@
                         <thead>
                         <tr>
                             <th>Tahun</th>
-                            <th>Periode</th>
+                            <th>Bulan</th>
+                            <th>Catatan / Keterangan</th>
                             <th style="width: 150px;">Created At</th>
                             <th style="width: 90px;">action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($kinerjas as $kinerja)
+                        @foreach ($reports as $report)
                             <tr>
-                                <td>{{$kinerja['tahun']}}</td>
+                                <td>{{$report['tahun']}}</td>
                                 <td>
-                                    @if ($kinerja['periode'] == "Tahunan")
-                                        <span class="badge badge-primary">{{$kinerja['periode']}}</span>
-                                    @else
-                                    <span class="badge badge-warning">{{$kinerja['periode']}}</span>
-                                    @endif
                                 </td>
                                 <td>{{now()}}</td>
                                 <td>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="{{route('kinerja.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('kinerja.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="{{route('kinerja.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
