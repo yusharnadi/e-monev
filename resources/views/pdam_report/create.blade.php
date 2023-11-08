@@ -3,7 +3,7 @@
 @section('page-heading')
   <h1>Upload Laporan Bulanan PDAM</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="https://sinarpju.digitaldev.id/laporan">Laporan Bulanan</a></div>
+    <div class="breadcrumb-item"><a href="{{route('pdam-report.index')}}">Laporan Bulanan</a></div>
     <div class="breadcrumb-item">Tambah Dokumen</div>
   </div>
 @endsection
@@ -40,7 +40,7 @@
           </div>
           <div class="form-group row mb-2"> 
             <label for="filename" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen Laporan (*pdf)</label>
-            <div class="custom-file col col-sm-4 col-md-4 col-lg-2 col-xl-2 ml-3">
+            <div class="custom-file col col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-3">
                 <input type="file" class="custom-file-input" id="filename" name="filename"/>
                 <label class="custom-file-label" for="customFile">Pilih Dokumen</label>
               </div>
@@ -64,5 +64,15 @@
   </div>
 </div>
 @endsection
+@push('page-js')
+    <script>
+      $('#filename').on('change',function(e){
+                //get the file name
+                var fileName = e.target.files[0].name;
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            })
+    </script>
+@endpush
 
 
