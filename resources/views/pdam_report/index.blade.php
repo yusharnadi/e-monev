@@ -28,10 +28,10 @@
                         <tbody>
                         @foreach ($reports as $report)
                             <tr>
-                                <td>{{$report['tahun']}}</td>
-                                <td>
-                                </td>
-                                <td>{{now()}}</td>
+                                <td>{{$report->year}}</td>
+                                <td>{{$report->month}}</td>
+                                <td>{{$report->note}}</td>
+                                <td>{{$report->created_at}}</td>
                                 <td>
                                     <a href="{{route('kinerja.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                     <a href="{{route('kinerja.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
