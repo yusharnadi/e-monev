@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PdamReportStoreRequest;
 use App\Http\Services\PdamReportServiceInterface;
-use Illuminate\Support\Facades\Log;
 
 class PdamReportController extends Controller
 {
@@ -20,7 +19,7 @@ class PdamReportController extends Controller
 
     public function create()
     {
-        $bulan = ['Januari', 'Februari'];
+        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         return view('pdam_report.create', ['bulan' => $bulan]);
     }
 
