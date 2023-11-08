@@ -28,12 +28,32 @@ class KinerjaController extends Controller
         return view('kinerja.index', ['kinerjas' => $kinerja]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function showPeriod(Request $request)
+    {
+        $period = array('Tahunan', 'Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
+        return view('kinerja.period', ['period' => $period]);
+    }
+
+    public function storePeriod(Request $request)
+    {
+
+        $period_data = [
+            'tahun' => $request->tahun,
+            'periode' => $request->periode,
+        ];
+
+        session(['period_data' => $period_data]);
+
+        return redirect()->route('kinerja.show.period')->with('message', 'Berhasil menyimpan data.');
+    }
+
+    public function showFinace(Request $request)
+    {
+        // dd($request);
+        return view('kinerja.finance');
+    }
     public function create()
     {
-        //
     }
 
     /**

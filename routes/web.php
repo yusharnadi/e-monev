@@ -24,5 +24,12 @@ Route::resource('pdam-report', PdamReportController::class);
 Route::resource('users', KinerjaController::class);
 Route::resource('role', KinerjaController::class);
 
+Route::get('kinerja/create/period', [KinerjaController::class, 'showPeriod'])->name('kinerja.show.period');
+Route::post('kinerja/create/period', [KinerjaController::class, 'storePeriod'])->name('kinerja.store.period');
+
+Route::get('kinerja/create/finance', [KinerjaController::class, 'showFinace'])->name('kinerja.show.finance');
+
+
+
 Route::get('logout', [])->name('logout');
 Route::get('/dashboard', [])->name('dashboard');
