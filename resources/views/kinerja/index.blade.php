@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('kinerja.create')}}" class="btn btn-info mb-2">Tambah Data</a>
+                    <a href="{{route('kinerja.show.period')}}" class="btn btn-info mb-2">Tambah Data</a>
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
