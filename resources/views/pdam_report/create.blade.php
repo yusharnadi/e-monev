@@ -19,7 +19,7 @@
               </div>
             @endforeach    
           @endif
-        <form action="{{route('users.store')}}" class="form" method="POST">
+        <form action="{{route('pdam-report.store')}}" class="form" method="POST"  enctype="multipart/form-data">
           @csrf
           <div class="form-group row mb-2">
             <label for="year" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tahun Pelaporan</label>
@@ -38,14 +38,11 @@
               </select>
             </div>
           </div>
-          <div class="form-group row mb-2">
-            <label for="filename" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen Laporan</label>
-            {{-- <div class="col-sm-12 col-md-4">
-                <input id="filename" type="password" name="password" class="form-control" required>
-            </div> --}}
+          <div class="form-group row mb-2"> 
+            <label for="filename" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen Laporan (*pdf)</label>
             <div class="custom-file col col-sm-4 col-md-4 col-lg-2 col-xl-2 ml-3">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <input type="file" class="custom-file-input" id="filename" name="filename"/>
+                <label class="custom-file-label" for="customFile">Pilih Dokumen</label>
               </div>
           </div>
           <div class="form-group row mb-2">

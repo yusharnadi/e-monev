@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PdamReportStoreRequest;
 use App\Http\Services\PdamReportServiceInterface;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PdamReportController extends Controller
 {
@@ -21,5 +22,16 @@ class PdamReportController extends Controller
     {
         $bulan = ['Januari', 'Februari'];
         return view('pdam_report.create', ['bulan' => $bulan]);
+    }
+
+    public function store(PdamReportStoreRequest $request)
+    {
+
+        $validated_request = $request->safe()->except(['_token']);
+
+        if ($this->pdamReportService->create($validated_request)) {
+            return redirect()->route('pdam-report.index')->with('message', 'Berhasil menambahkan data.');
+        }
+        return redirect()->route('pdam-report.index')->with('error', 'Gagal menambahkan data.');
     }
 }
