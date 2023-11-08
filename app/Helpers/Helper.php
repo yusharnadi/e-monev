@@ -18,6 +18,22 @@ function set_active($uri, $output = 'active')
     }
 }
 
+
+function set_active_wizard($uri, $output = 'wizard-step-warning')
+{
+    if (is_array($uri)) {
+        foreach ($uri as $u) {
+            if (Route::is($u)) {
+                return $output;
+            }
+        }
+    } else {
+        if (Route::is($uri)) {
+            return $output;
+        }
+    }
+}
+
 function rupiah($angka)
 {
     $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
@@ -30,7 +46,7 @@ function uploadFile($file)
     $name = $file->hashName();
 
     try {
-//        $file->move('uploads', $name);
+        //        $file->move('uploads', $name);
         $file->move(public_path("uploads/"), $name);
     } catch (\Exception $th) {
         Log::error($th->getMessage());
