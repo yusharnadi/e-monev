@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('penerimaan_rek_air');
             $table->bigInteger('rek_air');
             $table->bigInteger('aktiva');
+            $table->bigInteger('utang');
             $table->bigInteger('penduduk_terlayani');
             $table->bigInteger('penduduk_dalam_wilayah_Kerja_pdam');
             $table->bigInteger('pelanggan_bulan_lalu');
