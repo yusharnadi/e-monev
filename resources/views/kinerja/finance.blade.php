@@ -31,51 +31,51 @@
             <div class="form-group row mb-2 mt-4">
               <label for="laba_bersih" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Laba Bersih Setelah Pajak</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="laba_bersih" id="laba_bersih" value="{{session('finance_data.laba_bersih')}}" required/>
+                  <input class="form-control text-right" type="number" name="laba_bersih" id="laba_bersih" value="{{session('finance_data.laba_bersih')}}" required/>
               </div>
               <label for="utang_lancar" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Utang Lancar</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="utang_lancar" id="utang_lancar" value="{{session('finance_data.utang_lancar')}}" required/>
+                  <input class="form-control text-right" type="number" name="utang_lancar" id="utang_lancar" value="{{session('finance_data.utang_lancar')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2">
               <label for="equity" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Equity</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="equity" id="equity" value="{{session('finance_data.equity')}}" required/>
+                  <input class="form-control text-right" type="number" name="equity" id="equity" value="{{session('finance_data.equity')}}" required/>
               </div>
               <label for="penerimaan_rek_air" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Penerimaan Rek Air</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="penerimaan_rek_air" id="penerimaan_rek_air" value="{{session('finance_data.penerimaan_rek_air')}}" required/>
+                  <input class="form-control text-right" type="number" name="penerimaan_rek_air" id="penerimaan_rek_air" value="{{session('finance_data.penerimaan_rek_air')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2">
               <label for="biaya_operasi" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Biaya Operasi</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="biaya_operasi" id="biaya_operasi" value="{{session('finance_data.biaya_operasi')}}" required/>
+                  <input class="form-control text-right" type="number" name="biaya_operasi" id="biaya_operasi" value="{{session('finance_data.biaya_operasi')}}" required/>
               </div>
               <label for="rek_air" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Rekening Air</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="rek_air" id="rek_air" value="{{session('finance_data.rek_air')}}" required/>
+                  <input class="form-control text-right" type="number" name="rek_air" id="rek_air" value="{{session('finance_data.rek_air')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2">
               <label for="pendapatan_operasi" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Pendapatan Operasi</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="pendapatan_operasi" id="pendapatan_operasi" value="{{session('finance_data.pendapatan_operasi')}}" required/>
+                  <input class="form-control text-right" type="number" name="pendapatan_operasi" id="pendapatan_operasi" value="{{session('finance_data.pendapatan_operasi')}}" required/>
               </div>
               <label for="aktiva" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Aktiva</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="aktiva" id="aktiva" value="{{session('finance_data.aktiva')}}" required/>
+                  <input class="form-control text-right" type="number" name="aktiva" id="aktiva" value="{{session('finance_data.aktiva')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2">
               <label for="kas" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Kas + Setara Kas</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="kas" id="kas" value="{{session('finance_data.kas')}}" required/>
+                  <input class="form-control text-right" type="number" name="kas" id="kas" value="{{session('finance_data.kas')}}" required/>
               </div>
               <label for="utang" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Utang</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="utang" id="utang" value="{{session('finance_data.utang')}}" required/>
+                  <input class="form-control text-right" type="number" name="utang" id="utang" value="{{session('finance_data.utang')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-4">

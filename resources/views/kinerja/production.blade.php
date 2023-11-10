@@ -31,41 +31,41 @@
             <div class="form-group row mb-2 mt-4">
               <label for="volume_produksi_rill" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Volume Produksi Rill</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="volume_produksi_rill" id="volume_produksi_rill" value="{{session('production_data.volume_produksi_rill')}}" required/>
+                  <input class="form-control text-right" type="number" name="volume_produksi_rill" id="volume_produksi_rill" value="{{session('production_data.volume_produksi_rill')}}" required/>
               </div>
               <label for="kapasitas_produksi_terpasang" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Kapasitas Produksi Terpasang</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="kapasitas_produksi_terpasang" id="kapasitas_produksi_terpasang" value="{{session('production_data.kapasitas_produksi_terpasang')}}" required/>
+                  <input class="form-control text-right" type="number" name="kapasitas_produksi_terpasang" id="kapasitas_produksi_terpasang" value="{{session('production_data.kapasitas_produksi_terpasang')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="volume_distribusi_air" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Volume Distribusi Air</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="volume_distribusi_air" id="volume_distribusi_air" value="{{session('production_data.volume_distribusi_air')}}" required/>
+                    <input class="form-control text-right" type="number" name="volume_distribusi_air" id="volume_distribusi_air" value="{{session('production_data.volume_distribusi_air')}}" required/>
                 </div>
                 <label for="air_terjual" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Air yang Terjual</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="air_terjual" id="air_terjual" value="{{session('production_data.air_terjual')}}" required/>
+                    <input class="form-control text-right" type="number" name="air_terjual" id="air_terjual" value="{{session('production_data.air_terjual')}}" required/>
                 </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="waktu_distribusi" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Waktu Distribusi Air ke Pelanggan dlm 1 bln</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="waktu_distribusi" id="waktu_distribusi" value="{{session('production_data.waktu_distribusi')}}" required/>
+                    <input class="form-control text-right" type="number" name="waktu_distribusi" id="waktu_distribusi" value="{{session('production_data.waktu_distribusi')}}" required/>
                 </div>
                 <label for="pelanggan_tekanan_7" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Pelanggan dgn Tekanan > 0.7 bar</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="pelanggan_tekanan_7" id="pelanggan_tekanan_7" value="{{session('production_data.pelanggan_tekanan_7')}}" required/>
+                    <input class="form-control text-right" type="number" name="pelanggan_tekanan_7" id="pelanggan_tekanan_7" value="{{session('production_data.pelanggan_tekanan_7')}}" required/>
                 </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="jumlah_pelanggan" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Pelanggan</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="jumlah_pelanggan" id="jumlah_pelanggan" value="{{session('production_data.jumlah_pelanggan')}}" required/>
+                    <input class="form-control text-right" type="number" name="jumlah_pelanggan" id="jumlah_pelanggan" value="{{session('production_data.jumlah_pelanggan')}}" required/>
                 </div>
                 <label for="jumlah_meter_air_diganti" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Meter Air di Ganti pd thn Bersangkutan</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="jumlah_meter_air_diganti" id="jumlah_meter_air_diganti" value="{{session('production_data.jumlah_meter_air_diganti')}}" required/>
+                    <input class="form-control text-right" type="number" name="jumlah_meter_air_diganti" id="jumlah_meter_air_diganti" value="{{session('production_data.jumlah_meter_air_diganti')}}" required/>
                 </div>
             </div>
             

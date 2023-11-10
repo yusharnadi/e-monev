@@ -31,21 +31,21 @@
             <div class="form-group row mb-2 mt-4">
               <label for="jumlah_pegawai" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Pegawai</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="jumlah_pegawai" id="jumlah_pegawai" value="{{session('resource_data.jumlah_pegawai')}}" required/>
+                  <input class="form-control text-right" type="number" name="jumlah_pegawai" id="jumlah_pegawai" value="{{session('resource_data.jumlah_pegawai')}}" required/>
               </div>
               <label for="jumlah_pegawai_diklat" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Pegawai Diklat</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="jumlah_pegawai_diklat" id="jumlah_pegawai_diklat" value="{{session('resource_data.jumlah_pegawai_diklat')}}" required/>
+                  <input class="form-control text-right" type="number" name="jumlah_pegawai_diklat" id="jumlah_pegawai_diklat" value="{{session('resource_data.jumlah_pegawai_diklat')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="biaya_diklat" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Biaya Diklat</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="biaya_diklat" id="biaya_diklat" value="{{session('resource_data.biaya_diklat')}}" required/>
+                    <input class="form-control text-right" type="number" name="biaya_diklat" id="biaya_diklat" value="{{session('resource_data.biaya_diklat')}}" required/>
                 </div>
                 <label for="jumlah_biaya_pegawai" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Biaya Pegawai</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="jumlah_biaya_pegawai" id="jumlah_biaya_pegawai" value="{{session('resource_data.jumlah_biaya_pegawai')}}" required/>
+                    <input class="form-control text-right" type="number" name="jumlah_biaya_pegawai" id="jumlah_biaya_pegawai" value="{{session('resource_data.jumlah_biaya_pegawai')}}" required/>
                 </div>
             </div>
             

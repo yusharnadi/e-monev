@@ -31,51 +31,51 @@
             <div class="form-group row mb-2 mt-4">
               <label for="penduduk_terlayani" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Penduduk Terlayani</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="penduduk_terlayani" id="penduduk_terlayani" value="{{session('service_data.penduduk_terlayani')}}" required/>
+                  <input class="form-control text-right" type="number" name="penduduk_terlayani" id="penduduk_terlayani" value="{{session('service_data.penduduk_terlayani')}}" required/>
               </div>
               <label for="penduduk_dalam_wilayah_Kerja_pdam" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Penduduk dlm Wilayah Kerja PDAM</label>
               <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                  <input class="form-control" type="number" name="penduduk_dalam_wilayah_Kerja_pdam" id="penduduk_dalam_wilayah_Kerja_pdam" value="{{session('service_data.penduduk_dalam_wilayah_Kerja_pdam')}}" required/>
+                  <input class="form-control text-right" type="number" name="penduduk_dalam_wilayah_Kerja_pdam" id="penduduk_dalam_wilayah_Kerja_pdam" value="{{session('service_data.penduduk_dalam_wilayah_Kerja_pdam')}}" required/>
               </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="pelanggan_bulan_lalu" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Pelanggan Bulan Lalu</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="pelanggan_bulan_lalu" id="pelanggan_bulan_lalu" value="{{session('service_data.pelanggan_bulan_lalu')}}" required/>
+                    <input class="form-control text-right" type="number" name="pelanggan_bulan_lalu" id="pelanggan_bulan_lalu" value="{{session('service_data.pelanggan_bulan_lalu')}}" required/>
                 </div>
                 <label for="pelanggan_bulan_ini" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Pelanggan Bulan Ini</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="pelanggan_bulan_ini" id="pelanggan_bulan_ini" value="{{session('service_data.pelanggan_bulan_ini')}}" required/>
+                    <input class="form-control text-right" type="number" name="pelanggan_bulan_ini" id="pelanggan_bulan_ini" value="{{session('service_data.pelanggan_bulan_ini')}}" required/>
                 </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="keluhan_selesai" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Keluhan Selesai</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="keluhan_selesai" id="keluhan_selesai" value="{{session('service_data.keluhan_selesai')}}" required/>
+                    <input class="form-control text-right" type="number" name="keluhan_selesai" id="keluhan_selesai" value="{{session('service_data.keluhan_selesai')}}" required/>
                 </div>
                 <label for="keluhan" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah keluhan</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="keluhan" id="keluhan" value="{{session('service_data.keluhan')}}" required/>
+                    <input class="form-control text-right" type="number" name="keluhan" id="keluhan" value="{{session('service_data.keluhan')}}" required/>
                 </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="uji_kualitas_memenuhi_syarat" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Uji Kualitas yg Memenuhi Syarat</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="uji_kualitas_memenuhi_syarat" id="uji_kualitas_memenuhi_syarat" value="{{session('service_data.uji_kualitas_memenuhi_syarat')}}" required/>
+                    <input class="form-control text-right" type="number" name="uji_kualitas_memenuhi_syarat" id="uji_kualitas_memenuhi_syarat" value="{{session('service_data.uji_kualitas_memenuhi_syarat')}}" required/>
                 </div>
                 <label for="jumlah_uji" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah yang Diuji</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="jumlah_uji" id="jumlah_uji" value="{{session('service_data.jumlah_uji')}}" required/>
+                    <input class="form-control text-right" type="number" name="jumlah_uji" id="jumlah_uji" value="{{session('service_data.jumlah_uji')}}" required/>
                 </div>
             </div>
             <div class="form-group row mb-2 mt-4">
                 <label for="air_terjual_domestik" class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Jumlah Air Terjual Domestik</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="air_terjual_domestik" id="air_terjual_domestik" value="{{session('service_data.air_terjual_domestik')}}" required/>
+                    <input class="form-control text-right" type="number" name="air_terjual_domestik" id="air_terjual_domestik" value="{{session('service_data.air_terjual_domestik')}}" required/>
                 </div>
                 <label for="pelanggan_domestik" class="col-form-label text-md-right col-12 col-md-3 col-lg-2">Jumlah Pelanggan Domestik</label>
                 <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                    <input class="form-control" type="number" name="pelanggan_domestik" id="pelanggan_domestik" value="{{session('service_data.pelanggan_domestik')}}" required/>
+                    <input class="form-control text-right" type="number" name="pelanggan_domestik" id="pelanggan_domestik" value="{{session('service_data.pelanggan_domestik')}}" required/>
                 </div>
             </div>
 
