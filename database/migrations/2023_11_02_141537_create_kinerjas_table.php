@@ -46,7 +46,7 @@ return new class extends Migration
             $table->bigInteger('biaya_diklat');
             $table->bigInteger('jumlah_biaya_pegawai');
             $table->string('tahun');
-            $table->smallInteger('periode');
+            $table->string('periode');
             $table->timestamps();
         });
     }
