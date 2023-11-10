@@ -19,6 +19,12 @@
               </div>
             @endforeach    
           @endif
+            @if (session('error'))
+                <div class="alert alert-danger">{{session('error')}}</div>
+            @endif
+            @if (session('message'))
+                <div class="alert alert-primary">{{session('message')}}</div>
+            @endif
             @include('kinerja.wizard_step')
             <form action="{{route('kinerja.store.period')}}" class="form wizard-content" method="POST">
             @csrf
@@ -43,7 +49,6 @@
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                     <div class="col-sm-12 col-md-7">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="reset" class="btn btn-secondary">Hapus</button>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
