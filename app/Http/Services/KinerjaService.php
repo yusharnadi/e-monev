@@ -23,4 +23,9 @@ class KinerjaService implements KinerjaServiceInterface
             Log::error('KinerjaService@create Error', ['Message' => $th->getMessage()]);
         }
     }
+
+    public function getById(int $id)
+    {
+        return $this->model->findOrFail($id);
+    }
 }
