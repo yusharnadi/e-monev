@@ -41,6 +41,7 @@ Route::get('kinerja/create/resource', [KinerjaController::class, 'showResource']
 Route::post('kinerja/create/resource', [KinerjaController::class, 'storeResource'])->name('kinerja.store.resource');
 
 Route::get('pdam/monev', [MonevPdamController::class, 'index'])->name('monev.pdam.index');
+Route::get('pdam/monev/{id}/detail', [MonevPdamController::class, 'detail'])->name('monev.pdam.detail');
 
 Route::get('logout', [])->name('logout');
 Route::get('/dashboard', [])->name('dashboard');
