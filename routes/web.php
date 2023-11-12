@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KinerjaController;
+use App\Http\Controllers\MonevPdamController;
 use App\Http\Controllers\PdamReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,8 @@ Route::post('kinerja/create/production', [KinerjaController::class, 'storeProduc
 
 Route::get('kinerja/create/resource', [KinerjaController::class, 'showResource'])->name('kinerja.show.resource');
 Route::post('kinerja/create/resource', [KinerjaController::class, 'storeResource'])->name('kinerja.store.resource');
+
+Route::get('pdam/monev', [MonevPdamController::class, 'index'])->name('monev.pdam.index');
 
 Route::get('logout', [])->name('logout');
 Route::get('/dashboard', [])->name('dashboard');
