@@ -16,7 +16,7 @@
       {{-- @can("read user") --}}
       <li class="menu-header">PDAM</li>
       {{-- @endcan --}}
-        <li class="{{set_active('monev.*')}}"><a class="nav-link" href="{{ route('kinerja.index') }}"><i class="fas fa-file-invoice"></i><span>Monitoring & Evaluasi</span></a></li>
+        <li class="{{set_active('monev.pdam.*')}}"><a class="nav-link" href="{{ route('monev.pdam.index') }}"><i class="fas fa-file-invoice"></i><span>Monitoring & Evaluasi</span></a></li>
         <li class="{{set_active('kinerja.*')}}"><a class="nav-link" href="{{ route('kinerja.index') }}"><i class="fas fa-file-signature"></i><span>Kinerja PDAM</span></a></li>
         <li class="{{set_active('pdam-report.*')}}"><a class="nav-link" href="{{ route('pdam-report.index') }}"><i class="fas fa-file-upload"></i><span>Laporan Bulanan</span></a></li>
         {{-- <li class="dropdown">
