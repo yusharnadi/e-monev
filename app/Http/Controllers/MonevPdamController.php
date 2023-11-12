@@ -16,4 +16,10 @@ class MonevPdamController extends Controller
         $kinerjas = $this->kinerjaService->getAll();
         return view('monev.pdam.index', ['kinerjas' => $kinerjas]);
     }
+
+    public function detail(int $id)
+    {
+        $kinerja = $this->kinerjaService->getById($id);
+        return view('monev.pdam.detail', ['kinerja' => $kinerja]);
+    }
 }
