@@ -8,7 +8,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    {{-- <a href="{{route('kinerja.show.period')}}" class="btn btn-info mb-2">Tambah Data</a> --}}
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
@@ -44,7 +43,7 @@
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('monev.pdam.detail', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
                         @endforeach
