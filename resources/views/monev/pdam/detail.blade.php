@@ -41,40 +41,40 @@
                                     </tr>
                                     <tr>
                                         <td>&nbsp a. Roe</td>
-                                        <td class="text-right">2.5 %</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['roe_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['roe_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['roe_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp b. Rasio Operasi</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['rasio_operasi_kondisi'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_operasi_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_operasi_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="4"><strong>2. Likuiditas</strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp a. Rasio Kas</td>
-                                        <td class="text-right">2.5 %</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['rasio_kas_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['rasio_kas_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_kas_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp b. Efektifitas Penagihan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['efektifitas_penagihan_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['efektifitas_penagihan_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['efektifitas_penagihan_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>3. Solvabilitas</strong></td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['solvabilitas_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['solvabilitas_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['solvabilitas_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr class="bg-secondary text-white">
                                         <td colspan="3"><strong>Bobot Kinerja - Aspek Keuangan</strong></td>
-                                        <td class="text-right"><strong>0.97</strong></td>
+                                        <td class="text-right"><strong>{{$penilaian['bobot_keuangan'] ?? 0}}</strong></td>
                                     </tr>
                                     {{-- END KEUANGAN  --}}
                                     <tr>
@@ -82,37 +82,37 @@
                                     </tr>
                                     <tr>
                                         <td>1. Cakupan Pelayanan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['cakupan_pelayanan_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['cakupan_pelayanan_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['cakupan_pelayanan_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>2. Pertumbuhan Pelanggan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['pertumbuhan_pelanggan_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['pertumbuhan_pelanggan_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['pertumbuhan_pelanggan_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>3. Tingkat Penyelesaian Pengaduan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['penyelesaian_pengaduan_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['penyelesaian_pengaduan_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['penyelesaian_pengaduan_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>4. Kualitas Air Pelanggan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['kualitas_air_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['kualitas_air_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['kualitas_air_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>5. Konsumsi Air Domestik</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['air_domestik_kondisi'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['air_domestik_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['air_domestik_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr class="bg-secondary text-white">
                                         <td colspan="3"><strong>Bobot Kinerja - Aspek Pelayanan</strong></td>
-                                        <td class="text-right"><strong>0.97</strong></td>
+                                        <td class="text-right"><strong>{{$penilaian['bobot_pelayanan'] ?? 0}}</strong></td>
                                     </tr>
                                     {{-- END Pelayanan  --}}
                                     <tr>

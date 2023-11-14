@@ -20,6 +20,8 @@ class MonevPdamController extends Controller
     public function detail(int $id)
     {
         $kinerja = $this->kinerjaService->getById($id);
-        return view('monev.pdam.detail', ['kinerja' => $kinerja]);
+        // dd($this->kinerjaService->calculateBpspam($kinerja));
+        $penilaian = $this->kinerjaService->calculateBpspam($kinerja);
+        return view('monev.pdam.detail', ['kinerja' => $kinerja, 'penilaian' => $penilaian]);
     }
 }
