@@ -63,8 +63,25 @@ class KinerjaService implements KinerjaServiceInterface
         $air_domestik_nilai = 0;
         $air_domestik_bobot = 0;
 
+        $efisiensi_produksi_kondisi = 0;
+        $efisiensi_produksi_nilai = 0;
+        $efisiensi_produksi_bobot = 0;
+        $tingkat_kehilangan_kondisi = 0;
+        $tingkat_kehilangan_nilai = 0;
+        $tingkat_kehilangan_bobot = 0;
+        $jam_operasi_kondisi = 0;
+        $jam_operasi_nilai = 0;
+        $jam_operasi_bobot = 0;
+        $tekanan_air_kondisi = 0;
+        $tekanan_air_nilai = 0;
+        $tekanan_air_bobot = 0;
+        $penggantian_kondisi = 0;
+        $penggantian_nilai = 0;
+        $penggantian_bobot = 0;
+
         $bobot_keuangan = 0;
         $bobot_pelayanan = 0;
+        $bobot_produksi = 0;
 
         if (isset($kinerja) && $kinerja !== null) {
 
@@ -252,10 +269,102 @@ class KinerjaService implements KinerjaServiceInterface
 
             $air_domestik_bobot = 0.05 * $air_domestik_nilai;
 
-            // END kualitas AIR
+            // END AIR DOMESTIK
+
+            $efisiensi_produksi_kondisi = ($kinerja->kapasitas_produksi_terpasang !== 0) ? round(($kinerja->volume_produksi_rill / $kinerja->kapasitas_produksi_terpasang) * 100, 2) : 0;
+
+            if ($efisiensi_produksi_kondisi < 60) {
+                $efisiensi_produksi_nilai = 1;
+            } elseif ($efisiensi_produksi_kondisi < 70) {
+                $efisiensi_produksi_nilai = 2;
+            } elseif ($efisiensi_produksi_kondisi < 80) {
+                $efisiensi_produksi_nilai = 3;
+            } elseif ($efisiensi_produksi_kondisi < 90) {
+                $efisiensi_produksi_nilai = 4;
+            } else {
+                $efisiensi_produksi_nilai = 5;
+            }
+
+            $efisiensi_produksi_bobot = 0.07 * $efisiensi_produksi_nilai;
+
+            // END EFISIENSI PRODUKSI
+
+            $air_hilang = $kinerja->volume_distribusi_air - $kinerja->air_terjual;
+            $tingkat_kehilangan_kondisi = ($kinerja->volume_distribusi_air !== 0) ? round(($air_hilang / $kinerja->volume_distribusi_air) * 100, 2) : 0;
+
+            if ($tingkat_kehilangan_kondisi <= 25) {
+                $tingkat_kehilangan_nilai = 5;
+            } elseif ($tingkat_kehilangan_kondisi <= 30) {
+                $tingkat_kehilangan_nilai = 4;
+            } elseif ($tingkat_kehilangan_kondisi <= 35) {
+                $tingkat_kehilangan_nilai = 3;
+            } elseif ($tingkat_kehilangan_kondisi <= 40) {
+                $tingkat_kehilangan_nilai = 2;
+            } else {
+                $tingkat_kehilangan_nilai = 1;
+            }
+
+            $tingkat_kehilangan_bobot = 0.07 * $tingkat_kehilangan_nilai;
+
+            // END TINGKAT KEHILANGAN
+
+            $jam_operasi_kondisi = round(($kinerja->waktu_distribusi / 30), 2);
+
+            if ($jam_operasi_kondisi < 12) {
+                $jam_operasi_nilai = 1;
+            } elseif ($jam_operasi_kondisi < 16) {
+                $jam_operasi_nilai = 2;
+            } elseif ($jam_operasi_kondisi < 18) {
+                $jam_operasi_nilai = 3;
+            } elseif ($jam_operasi_kondisi < 21) {
+                $jam_operasi_nilai = 4;
+            } else {
+                $jam_operasi_nilai = 5;
+            }
+
+            $jam_operasi_bobot = 0.08 * $jam_operasi_nilai;
+
+            // END JAM OPERASI
+
+            $tekanan_air_kondisi = ($kinerja->jumlah_pelanggan !== 0) ? round(($kinerja->pelanggan_tekanan_7 / $kinerja->jumlah_pelanggan) * 100, 2) : 0;
+
+            if ($tekanan_air_kondisi < 20) {
+                $tekanan_air_nilai = 1;
+            } elseif ($tekanan_air_kondisi < 40) {
+                $tekanan_air_nilai = 2;
+            } elseif ($tekanan_air_kondisi < 60) {
+                $tekanan_air_nilai = 3;
+            } elseif ($tekanan_air_kondisi < 80) {
+                $tekanan_air_nilai = 4;
+            } else {
+                $tekanan_air_nilai = 5;
+            }
+
+            $tekanan_air_bobot = 0.065 * $tekanan_air_nilai;
+
+            // END TEKANAN AIR
+
+            $penggantian_kondisi = ($kinerja->jumlah_pelanggan !== 0) ? round(($kinerja->jumlah_meter_air_diganti / $kinerja->jumlah_pelanggan) * 100, 2) : 0;
+
+            if ($penggantian_kondisi < 5) {
+                $penggantian_nilai = 1;
+            } elseif ($penggantian_kondisi < 10) {
+                $penggantian_nilai = 2;
+            } elseif ($penggantian_kondisi < 15) {
+                $penggantian_nilai = 3;
+            } elseif ($penggantian_kondisi < 20) {
+                $penggantian_nilai = 4;
+            } else {
+                $penggantian_nilai = 5;
+            }
+
+            $penggantian_bobot = 0.065 * $penggantian_nilai;
+
+            // END PENGGANTIAN
 
             $bobot_keuangan = round($roe_bobot + $rasio_kas_bobot + $rasio_operasi_bobot + $efektifitas_penagihan_bobot + $solvabilitas_bobot, 2);
             $bobot_pelayanan = round($cakupan_pelayanan_bobot + $pertumbuhan_pelanggan_bobot + $penyelesaian_pengaduan_bobot + $kualitas_air_bobot + $air_domestik_bobot, 2);
+            $bobot_produksi = round($efisiensi_produksi_bobot + $tingkat_kehilangan_bobot + $jam_operasi_bobot + $tekanan_air_bobot + $penggantian_bobot, 2);
         }
 
 
@@ -292,8 +401,25 @@ class KinerjaService implements KinerjaServiceInterface
         $result['air_domestik_nilai'] = $air_domestik_nilai;
         $result['air_domestik_bobot'] = $air_domestik_bobot;
 
+        $result['efisiensi_produksi_kondisi'] = $efisiensi_produksi_kondisi;
+        $result['efisiensi_produksi_nilai'] = $efisiensi_produksi_nilai;
+        $result['efisiensi_produksi_bobot'] = $efisiensi_produksi_bobot;
+        $result['tingkat_kehilangan_kondisi'] = $tingkat_kehilangan_kondisi;
+        $result['tingkat_kehilangan_nilai'] = $tingkat_kehilangan_nilai;
+        $result['tingkat_kehilangan_bobot'] = $tingkat_kehilangan_bobot;
+        $result['jam_operasi_kondisi'] = $jam_operasi_kondisi;
+        $result['jam_operasi_nilai'] = $jam_operasi_nilai;
+        $result['jam_operasi_bobot'] = $jam_operasi_bobot;
+        $result['tekanan_air_kondisi'] = $tekanan_air_kondisi;
+        $result['tekanan_air_nilai'] = $tekanan_air_nilai;
+        $result['tekanan_air_bobot'] = $tekanan_air_bobot;
+        $result['penggantian_kondisi'] = $penggantian_kondisi;
+        $result['penggantian_nilai'] = $penggantian_nilai;
+        $result['penggantian_bobot'] = $penggantian_bobot;
+
         $result['bobot_keuangan'] = $bobot_keuangan;
         $result['bobot_pelayanan'] = $bobot_pelayanan;
+        $result['bobot_produksi'] = $bobot_produksi;
 
         return $result;
     }

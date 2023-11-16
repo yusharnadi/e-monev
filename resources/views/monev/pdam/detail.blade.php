@@ -120,37 +120,37 @@
                                     </tr>
                                     <tr>
                                         <td>1. Efisiensi Produksi</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['efisiensi_produksi_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['efisiensi_produksi_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['efisiensi_produksi_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>2. Tingkat Kehilangan Air</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['tingkat_kehilangan_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['tingkat_kehilangan_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['tingkat_kehilangan_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>3. Jam Operasi Layanan / hari</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['jam_operasi_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['jam_operasi_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['jam_operasi_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>4. Tekanan Sambungan Pelanggan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['tekanan_air_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['tekanan_air_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['tekanan_air_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>5. Penggantian Meter Air</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['penggantian_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['penggantian_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['penggantian_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr class="bg-secondary text-white">
                                         <td colspan="3"><strong>Bobot Kinerja - Aspek Operasi</strong></td>
-                                        <td class="text-right"><strong>0.97</strong></td>
+                                        <td class="text-right"><strong>{{$penilaian['bobot_produksi'] ?? 0}}</strong></td>
                                     </tr>
                                     {{-- END Operasi  --}}
                                     <tr>
