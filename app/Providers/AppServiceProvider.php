@@ -6,6 +6,8 @@ use App\Http\Services\KinerjaService;
 use App\Http\Services\KinerjaServiceInterface;
 use App\Http\Services\PdamReportService;
 use App\Http\Services\PdamReportServiceInterface;
+use App\Http\Services\UserService;
+use App\Http\Services\UserServiceInterface;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(KinerjaServiceInterface::class, KinerjaService::class);
         $this->app->bind(PdamReportServiceInterface::class, PdamReportService::class);
+        $this->app->bind(UserServiceInterface::class, UserService::class);
     }
 
     /**

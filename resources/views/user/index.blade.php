@@ -19,10 +19,8 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>NIP</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Department</th>
                 <th style="width: 50px">action</th>
               </tr>
             </thead>
@@ -30,10 +28,8 @@
             @foreach ($users as $user)  
                 <tr>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->nip}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-                    <td>{{$user->department_name}}</td>
                     <td>
                         <a href="{{route('users.edit', $user->id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                         <a href="{{route('users.delete', $user->id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
