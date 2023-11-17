@@ -46,8 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::get('pdam/monev', [MonevPdamController::class, 'index'])->name('monev.pdam.index');
     Route::get('pdam/monev/{id}/detail', [MonevPdamController::class, 'detail'])->name('monev.pdam.detail');
 
-    // delete route 
-    Route::get('users/{id}/delete', [UserController::class, 'delete'])->name('users.delete');
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

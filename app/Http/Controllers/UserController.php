@@ -126,11 +126,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function delete(int $id)
-    {
         if (!Auth::user()->can('delete user')) abort(403);
 
         try {
