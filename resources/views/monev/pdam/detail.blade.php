@@ -158,33 +158,33 @@
                                     </tr>
                                     <tr>
                                         <td>1. Rasio Jumlah Pegawai / 1000 Pelanggan</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['rasio_pegawai_kondisi'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_pegawai_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_pegawai_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>2. Rasio Diklat Pegawai / Peningkatan Kompetensi</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['rasio_diklat_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['rasio_diklat_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['rasio_diklat_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr>
                                         <td>3. Biaya Diklat terhadap Biaya Pegawai</td>
-                                        <td class="text-right">0.97</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">0.11</td>
+                                        <td class="text-right">{{$penilaian['biaya_diklat_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['biaya_diklat_nilai'] ?? 0}}</td>
+                                        <td class="text-right">{{$penilaian['biaya_diklat_bobot'] ?? 0}}</td>
                                     </tr>
                                     <tr class="bg-secondary text-white">
                                         <td colspan="3"><strong>Bobot Kinerja - Aspek SDM</strong></td>
-                                        <td class="text-right"><strong>0.97</strong></td>
+                                        <td class="text-right"><strong>{{$penilaian['bobot_sdm'] ?? 0}}</strong></td>
                                     </tr>
                                     <tr class="bg-primary text-white">
                                         <td><strong>Jumlah Bobot</strong></td>
-                                        <td class="text-center" colspan="3"><strong>0.97</strong></td>
+                                        <td class="text-center" colspan="3"><strong>{{$penilaian['total_bobot'] ?? 0}}</strong></td>
                                     </tr>
-                                    <tr class="bg-success text-white">
+                                    <tr class="{{$penilaian['color']}} text-white">
                                         <td><strong>Kategori</strong></td>
-                                        <td class="text-center" colspan="3"><strong>Sehat</strong></td>
+                                        <td class="text-center" colspan="3"><strong>{{$penilaian['kategori_penilaian'] ?? 0}}</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
