@@ -101,19 +101,19 @@ class UserController extends Controller
     {
         if (!Auth::user()->can('update user')) abort(403);
 
-        $validRequest = $request->safe()->except(['_token', 'role']);
+        $validated_request = $request->safe()->except(['_token', 'role']);
 
         if ($request->has('password') && $request->password != '') {
-            $validRequest['password'] = Hash::make($validRequest['password']);
+            $validated_request['password'] = Hash::make($validated_request['password']);
         }
 
-        // dd($validRequest);
+        // dd($validated_request);
 
         try {
-            $this->userService->update($id, $validRequest, $request->role);
+            $this->userService->update($id, $validated_request, $request->role);
             return redirect()->route('users.index')->with('message', "User berhasil diubah.");
         } catch (\Exception $th) {
-            Log::error($th->getMessage(), ['request' => $validRequest]);
+            Log::error($th->getMessage(), ['request' => $validated_request]);
             return redirect()->route('users.index')->with('error', "User gagal diubah.");
         }
     }

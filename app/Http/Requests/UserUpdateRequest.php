@@ -26,18 +26,14 @@ class UserUpdateRequest extends FormRequest
         if (parent::input('password') != '') {
             return [
                 'name' => 'required',
-                'nip' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|min:6|confirmed',
-                'department_id' => 'required',
                 'role' => 'required'
             ];
         } else {
             return [
                 'name' => 'required',
-                'nip' => 'required',
                 'email' => 'required|email',
-                'department_id' => 'required',
                 'role' => 'required'
             ];
         }
