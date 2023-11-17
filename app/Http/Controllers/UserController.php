@@ -48,14 +48,14 @@ class UserController extends Controller
     {
         if (!Auth::user()->can('create user')) abort(403);
 
-        $validRequest = $request->safe()->except(['_token']);
-        $validRequest['password'] = Hash::make($validRequest['password']);
-        // dd($validRequest);
+        $validated_request = $request->safe()->except(['_token']);
+        $validated_request['password'] = Hash::make($validated_request['password']);
+
         try {
-            $this->userService->insert($validRequest);
+            $this->userService->create($validated_request);
             return redirect()->route('users.index')->with('message', "User berhasil dibuat.");
         } catch (\Exception $th) {
-            Log::error($th->getMessage(), ['request' => $validRequest]);
+            Log::error($th->getMessage(), ['request' => $validated_request]);
             return redirect()->route('users.index')->with('error', "User gagal dibuat.");
         }
     }
