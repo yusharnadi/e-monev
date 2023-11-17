@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Services\UserServiceInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -21,7 +20,6 @@ class UserController extends Controller
         if (!Auth::user()->can('read user')) abort(403);
 
         $users = $this->userService->getAll();
-        // dd($users);
 
         return view('user.index', ['users' => $users]);
     }
@@ -35,9 +33,9 @@ class UserController extends Controller
     {
         if (!Auth::user()->can('create user')) abort(403);
 
-        $departments = $this->departmentService->findAll();
         $roles = Role::pluck('name')->all();
-        return view('user.create', ['roles' => $roles, 'departments' => $departments]);
+
+        return view('user.create', ['roles' => $roles,]);
     }
 
     /**
