@@ -25,12 +25,6 @@
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIP</label>
-            <div class="col-sm-12 col-md-3">
-              <input type="text" name="nip" class="form-control" value="{{$user->nip}}" required>
-            </div>
-          </div>
-          <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
             <div class="col-sm-12 col-md-4">
                 <input type="email" name="email" class="form-control" value="{{$user->email}}" required>
@@ -46,17 +40,6 @@
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password Confirmation</label>
             <div class="col-sm-12 col-md-4">
                 <input type="password" name="password_confirmation" class="form-control" >
-            </div>
-          </div>
-          <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Department</label>
-            <div class="col-sm-12 col-md-6">
-                <select name="department_id" class="form-control" required>
-                    <option value="">--- Pilih Department ---</option>
-                    @foreach ($departments as $department)
-                    <option value="{{$department->department_id}}" {{$user->department_id == $department->department_id ? 'selected':''}}>{{$department->department_fullname}}</option>
-                    @endforeach
-                </select>
             </div>
           </div>
           <div class="form-group row mb-2">

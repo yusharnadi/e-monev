@@ -81,15 +81,13 @@ class UserController extends Controller
     {
         if (!Auth::user()->can('update user')) abort(403);
 
-        $user = $this->userService->findById($id);
+        $user = $this->userService->getById($id);
 
         $roles = Role::pluck('name')->all();
+
         $role = $user->getRoleNames();
 
-        $departments = $this->departmentService->findAll();
-
-
-        return view('user.edit', ['user' => $user, 'roles' => $roles, 'role' => $role, 'departments' => $departments]);
+        return view('user.edit', ['user' => $user, 'roles' => $roles, 'role' => $role]);
     }
 
     /**
