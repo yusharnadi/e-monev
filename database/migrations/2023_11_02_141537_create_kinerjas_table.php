@@ -47,7 +47,6 @@ return new class extends Migration
             $table->bigInteger('jumlah_biaya_pegawai');
             $table->string('tahun');
             $table->string('periode');
-            $table->integer('created_by');
             $table->text('catatan_monitoring')->nullable();
             $table->timestamps();
         });

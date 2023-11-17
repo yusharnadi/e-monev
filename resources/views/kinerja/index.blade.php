@@ -20,7 +20,6 @@
                         <tr>
                             <th>Tahun</th>
                             <th>Periode</th>
-                            <th style="width: 150px;">Entry By</th>
                             <th style="width: 150px;">Created At</th>
                             <th style="width: 120px;">action</th>
                         </tr>
@@ -36,7 +35,6 @@
                                     <span class="badge badge-warning">{{$kinerja['periode']}}</span>
                                     @endif
                                 </td>
-                                <td><a href="#" class="font-weight-600"><img src="assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>

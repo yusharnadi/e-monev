@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\KinerjaServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class KinerjaController extends Controller
@@ -18,6 +19,8 @@ class KinerjaController extends Controller
      */
     public function index()
     {
+        if (!Auth::user()->can('read kinerja pdam')) abort(403);
+
         $kinerja = $this->kinerjaService->getAll();
 
         return view('kinerja.index', ['kinerjas' => $kinerja]);

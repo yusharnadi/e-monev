@@ -47,8 +47,7 @@ class KinerjaSeeder extends Seeder
             "biaya_diklat": 800000000,
             "jumlah_biaya_pegawai": 20786565250,
             "tahun": "2022",
-            "periode": "Tahunan",
-            "created_by": 3
+            "periode": "Tahunan"
         }';
         // return response()->json(json_decode($data));
         $kinerja = new Kinerja();
