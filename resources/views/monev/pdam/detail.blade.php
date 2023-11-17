@@ -5,7 +5,7 @@
     <div class="section-header-breadcrumb">
         <div class="breadcrumb-item"><a href="{{route('monev.pdam.index')}}">Monev PDAM</a></div>
         <div class="breadcrumb-item">Detail</div>
-      </div>
+    </div>
 @endsection
 @section('content')
     <div class="row">
