@@ -85,7 +85,6 @@
 
       $('#deleteModal').on('hidden.bs.modal', function (e) {
         $('#formDelete').attr('action', '')
-        console.log(e);
       })
     });
   </script>
