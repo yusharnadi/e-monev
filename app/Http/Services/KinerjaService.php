@@ -39,6 +39,16 @@ class KinerjaService implements KinerjaServiceInterface
         }
     }
 
+    public function delete(int $id)
+    {
+        try {
+            $kinerja = $this->model->findOrFail($id);
+            return $kinerja->delete();
+        } catch (\Throwable $th) {
+            Log::error('KinerjaService@update Error', ['Message' => $th->getMessage()]);
+        }
+    }
+
     public function calculateBpspam(Kinerja $kinerja)
     {
         $roe_kondisi = 0;

@@ -209,6 +209,11 @@ class KinerjaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (!Auth::user()->can('delete kinerja pdam')) abort(403);
+
+        if ($this->kinerjaService->delete($id)) {
+            return redirect()->route('kinerja.index')->with('message', 'Berhasil menghapus data.');
+        }
+        return redirect()->route('kinerja.index')->with('error', 'Gagal menghapus data.');
     }
 }
