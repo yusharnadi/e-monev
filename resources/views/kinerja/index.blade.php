@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('kinerja.show.period')}}" class="btn btn-info mb-2">Tambah Data</a>
+                    <a href="{{route('kinerja.show.period')}}" class="btn btn-info mb-2">Entri Kinerja</a>
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
@@ -19,7 +19,7 @@
                         <thead>
                         <tr>
                             <th>Tahun</th>
-                            <th>Periode</th>
+                            <th>Periode Pelaporan</th>
                             <th style="width: 150px;">Created At</th>
                             <th style="width: 120px;">action</th>
                         </tr>
@@ -38,7 +38,7 @@
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('kinerja.show', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
