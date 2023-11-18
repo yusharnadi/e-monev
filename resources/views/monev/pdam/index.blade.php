@@ -21,13 +21,15 @@
                             <th>Periode</th>
                             <th>Bobot</th>
                             <th>Kategori</th>
-                            <th style="width: 150px;">Entry By</th>
                             <th style="width: 150px;">Created At</th>
                             <th style="width: 90px;">action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($kinerjas as $kinerja)
+                        @php
+                            $penilaian = calculateBpspam($kinerja);
+                        @endphp
                             <tr>
                                 <td>{{$kinerja['tahun']}}</td>
                                 <td>
@@ -37,9 +39,8 @@
                                     <span class="badge badge-warning">{{$kinerja['periode']}}</span>
                                     @endif
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td><a href="#" class="font-weight-600"><img src="assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
+                                <td><strong>{{$penilaian['total_bobot']}}</strong></td>
+                                <td><span class="badge {{$penilaian['badge']}}">{{$penilaian['kategori_penilaian']}}</span></td>
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
