@@ -173,7 +173,8 @@ class KinerjaController extends Controller
      */
     public function edit(string $id)
     {
-        dd($this->kinerjaService->getById($id));
+        $kinerja = $this->kinerjaService->getById($id);
+        return view('kinerja.edit', ['kinerja' => $kinerja]);
     }
 
     /**
