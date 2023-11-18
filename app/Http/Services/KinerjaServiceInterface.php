@@ -9,5 +9,6 @@ interface KinerjaServiceInterface
     public function getAll();
     public function getById(int $id);
     public function create(array $attributes);
+    public function update(int $id, array $attributes);
     public function calculateBpspam(Kinerja $kinerja);
 }

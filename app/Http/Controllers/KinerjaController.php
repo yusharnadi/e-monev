@@ -28,13 +28,14 @@ class KinerjaController extends Controller
 
     public function showPeriod(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $period = array('Tahunan', 'Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
         return view('kinerja.period', ['period' => $period]);
     }
 
     public function storePeriod(Request $request)
     {
-
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $period_data = [
             'tahun' => $request->tahun,
             'periode' => $request->periode,
@@ -47,11 +48,13 @@ class KinerjaController extends Controller
 
     public function showFinace(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         return view('kinerja.finance');
     }
 
     public function storeFinace(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $finance_data = [
             'laba_bersih' => $request->laba_bersih,
             'utang_lancar' => $request->utang_lancar,
@@ -72,11 +75,13 @@ class KinerjaController extends Controller
 
     public function showService(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         return view('kinerja.service');
     }
 
     public function storeService(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $service_data = [
             'penduduk_terlayani' => $request->penduduk_terlayani,
             'penduduk_dalam_wilayah_Kerja_pdam' => $request->penduduk_dalam_wilayah_Kerja_pdam,
@@ -97,11 +102,13 @@ class KinerjaController extends Controller
 
     public function showProduction(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         return view('kinerja.production');
     }
 
     public function storeProduction(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $production_data = [
             'volume_produksi_rill' => $request->volume_produksi_rill,
             'kapasitas_produksi_terpasang' => $request->kapasitas_produksi_terpasang,
@@ -120,11 +127,13 @@ class KinerjaController extends Controller
 
     public function showResource(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         return view('kinerja.resource');
     }
 
     public function storeResource(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
         $resource_data = [
             'jumlah_pegawai' => $request->jumlah_pegawai,
             'jumlah_pegawai_diklat' => $request->jumlah_pegawai_diklat,
@@ -139,6 +148,8 @@ class KinerjaController extends Controller
 
     public function create(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
+
         $period_data = $request->session()->get('period_data');
         $finance_data = $request->session()->get('finance_data');
         $service_data = $request->session()->get('service_data');
@@ -152,6 +163,7 @@ class KinerjaController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::user()->can('create kinerja pdam')) abort(403);
 
         if ($this->kinerjaService->create($request->except(['_token']))) {
             return redirect()->route('kinerja.index')->with('message', 'Berhasil menyimpan data.');
@@ -164,6 +176,7 @@ class KinerjaController extends Controller
      */
     public function show(string $id)
     {
+        if (!Auth::user()->can('read kinerja pdam')) abort(403);
         $kinerja = $this->kinerjaService->getById($id);
         return view('kinerja.detail', ['kinerja' => $kinerja]);
     }
@@ -173,6 +186,7 @@ class KinerjaController extends Controller
      */
     public function edit(string $id)
     {
+        if (!Auth::user()->can('update kinerja pdam')) abort(403);
         $kinerja = $this->kinerjaService->getById($id);
         return view('kinerja.edit', ['kinerja' => $kinerja]);
     }
@@ -182,7 +196,12 @@ class KinerjaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if (!Auth::user()->can('update kinerja pdam')) abort(403);
+
+        if ($this->kinerjaService->update($id, $request->except(['_token']))) {
+            return redirect()->route('kinerja.index')->with('message', 'Berhasil menyimpan data.');
+        }
+        return redirect()->route('kinerja.index')->with('error', 'Gagal menyimpan data.');
     }
 
     /**

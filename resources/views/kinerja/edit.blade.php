@@ -31,6 +31,7 @@
         </div>
         <form action="{{route('kinerja.update', $kinerja->id)}}" method="POST">
             @csrf
+            @method('PUT')
             <div class="card">
                 <div class="card-header">
                 <h4>Data Keuangan</h4>
