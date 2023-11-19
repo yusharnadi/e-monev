@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\KinerjaServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MonevPdamController extends Controller
 {
@@ -13,17 +14,30 @@ class MonevPdamController extends Controller
 
     public function index()
     {
+        if (!Auth::user()->can('read monev pdam')) abort(403);
+
         $kinerjas = $this->kinerjaService->getAll();
         return view('monev.pdam.index', ['kinerjas' => $kinerjas]);
     }
 
     public function detail(int $id)
     {
+        if (!Auth::user()->can('read monev pdam')) abort(403);
+
         $kinerja = $this->kinerjaService->getById($id);
         // dd($this->kinerjaService->calculateBpspam($kinerja));
         // $penilaian = $this->kinerjaService->calculateBpspam($kinerja);
         $penilaian = calculateBpspam($kinerja);
-        dd($penilaian);
         return view('monev.pdam.detail', ['kinerja' => $kinerja, 'penilaian' => $penilaian]);
+    }
+
+    public function updateCatatanMonitoring(int $id, Request $request)
+    {
+        if (!Auth::user()->can('update monev pdam')) abort(403);
+
+        if ($this->kinerjaService->update($id, $request->except(['_token']))) {
+            return redirect()->route('monev.pdam.detail', $id)->with('message', 'Berhasil menambahkan catatan monitoring.');
+        }
+        return redirect()->route('monev.pdam.detail', $id)->with('error', 'Gagal menambahkan catatan monitoring.');
     }
 }

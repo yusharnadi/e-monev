@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('pdam/monev', [MonevPdamController::class, 'index'])->name('monev.pdam.index');
     Route::get('pdam/monev/{id}/detail', [MonevPdamController::class, 'detail'])->name('monev.pdam.detail');
+    Route::put('pdam/monev/{id}/update', [MonevPdamController::class, 'updateCatatanMonitoring'])->name('monev.pdam.update');
 
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');

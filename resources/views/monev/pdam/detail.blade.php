@@ -204,21 +204,69 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card card-primary">
                 <div class="card-header">
                     <h4>Catatan Monitoring & Evaluasi</h4>
+                    <div class="card-header-action">
+                        <button class="btn btn-primary btn-icon btn-fire" data-toggles="modal" id="smallButton" data-action="{{route('monev.pdam.update', $kinerja->id)}}"><i class="fas fa-edit"></i> Tambah Catatan</button>
+                      </div>
                 </div>
                 <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eaque neque soluta accusantium accusamus voluptatum aperiam. Corporis non, corrupti laborum facere libero fugit, quae rerum soluta magnam, accusamus enim voluptatum ipsa. A tenetur exercitationem possimus explicabo ab, laudantium amet delectus eos maxime? Cum distinctio perferendis neque pariatur provident voluptatum deserunt numquam, facere vitae quos voluptates odio iusto vel nisi voluptatem est earum, dolore iure nesciunt excepturi modi! Quis accusamus eligendi sint consequatur ullam est quaerat. Beatae quisquam dignissimos temporibus distinctio, eos saepe, odio nam facere alias, molestiae culpa! Perspiciatis similique at blanditiis ducimus dolorum earum eligendi quam veniam ipsam consequatur.</p>
+                    @isset($kinerja->catatan_monitoring)
+                        <p>{{$kinerja->catatan_monitoring}}</p>                        
+                    @endisset
+                    @empty($kinerja->catatan_monitoring)
+                        <p>Belum ada catatan monitoring.</p>
+                    @endempty
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary btn-icon"><i class="fas fa-edit"></i> Tambah Catatan</button>
+                    <a class="btn btn-secondary btn-icon" href="{{route('monev.pdam.index')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+@push('modal')
+  <div class="modal fade" tabindex="-1" role="dialog" id="updateModal" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="" method="POST" id="formDelete">
+          @csrf
+          @method('PUT')
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Catatan Monitoring & Evaluasi</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="catatan_monitoring">Catatan Monitoring</label>
+          <textarea class="form-control" name="catatan_monitoring" id="catatan_monitoring" style="height: 100px;">{{$kinerja->catatan_monitoring}}</textarea>
+        </div>
+        <div class="modal-footer bg-whitesmoke br">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+@endpush
 @push('css-datatables')
 @endpush
 @push('datatables-js')
+<script>
+    $(document).ready( function () {
+        // TRIGGER OPEN MODAl 
+        $('.btn-fire').click(function(){
+            $('#updateModal').modal({ backdrop: 'static', keyboard: false })
+            $('#formDelete').attr('action', $(this).data('action'))
+        })
+
+        // MODAL ON CLOSE HANDLER
+        $('#updateModal').on('hidden.bs.modal', function (e) {
+            $('#formDelete').attr('action', '')
+        })
+    });
+</script>
 @endpush
