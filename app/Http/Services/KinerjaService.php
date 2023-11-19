@@ -45,7 +45,7 @@ class KinerjaService implements KinerjaServiceInterface
             $kinerja = $this->model->findOrFail($id);
             return $kinerja->delete();
         } catch (\Throwable $th) {
-            Log::error('KinerjaService@update Error', ['Message' => $th->getMessage()]);
+            Log::error('KinerjaService@delete Error', ['Message' => $th->getMessage()]);
         }
     }
 }

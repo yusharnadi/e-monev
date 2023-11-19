@@ -52,4 +52,15 @@ class PdamReportService implements PdamReportServiceInterface
             deleteFile($attributes['filename']);
         }
     }
+
+    public function delete($id)
+    {
+        try {
+            $report = $this->model->findOrFail($id);
+            deleteFile($report->filename);
+            return $report->delete();
+        } catch (\Throwable $th) {
+            Log::error('ReportService@delete Error', ['Message' => $th->getMessage()]);
+        }
+    }
 }

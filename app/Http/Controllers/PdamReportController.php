@@ -60,4 +60,16 @@ class PdamReportController extends Controller
         }
         return redirect()->route('pdam-report.index')->with('error', 'Gagal mengubah data.');
     }
+
+    public function destroy($id)
+    {
+
+        if (!Auth::user()->can('delete laporan pdam')) abort(403);
+
+        if ($this->pdamReportService->delete($id)) {
+            return redirect()->route('pdam-report.index')->with('message', 'Berhasil menghapus data.');
+        }
+
+        return redirect()->route('pdam-report.index')->with('error', 'Gagal menghapus data.');
+    }
 }
