@@ -24,7 +24,7 @@
           <div class="form-group row mb-2">
             <label for="year" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tahun Pelaporan</label>
             <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                <input class="form-control" name="year" id="year" type="number" min="1900" max="3000" step="1" value="{{date('Y') - 1 }}" required/>
+                <input class="form-control" name="year" id="year" type="number" min="1900" max="3000" step="1" value="{{date('Y')}}" required/>
             </div>
           </div>
           <div class="form-group row mb-2">

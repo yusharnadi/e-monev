@@ -15,7 +15,7 @@ class PdamReportService implements PdamReportServiceInterface
     {
         return $this->model
             ->orderBy('year', 'desc')
-            ->orderBy('month', 'desc')
+            ->orderBy('id', 'desc')
             ->get();
     }
 
