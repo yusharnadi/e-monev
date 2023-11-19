@@ -19,11 +19,34 @@ class PdamReportService implements PdamReportServiceInterface
             ->get();
     }
 
+    public function getById($id)
+    {
+        return $this->model->findOrFail($id);
+    }
+
     public function create($attributes)
     {
         try {
             $attributes['filename'] = uploadFile($attributes['filename']);
             return $this->model->create($attributes);
+        } catch (\Exception $e) {
+            Log::error('Error occured ', ['error' => $e->getMessage()]);
+            deleteFile($attributes['filename']);
+        }
+    }
+
+    public function update($id, $attributes)
+    {
+        try {
+            $report = $this->model->findOrFail($id);
+            $oldFile = $report->filename;
+
+            if (array_key_exists('filename', $attributes)) {
+                $attributes['filename'] = uploadFile($attributes['filename']);
+                deleteFile($oldFile);
+            }
+
+            return $report->update($attributes);
         } catch (\Exception $e) {
             Log::error('Error occured ', ['error' => $e->getMessage()]);
             deleteFile($attributes['filename']);

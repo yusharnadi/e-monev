@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PdamReportStoreRequest extends FormRequest
+class PdamReportUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class PdamReportStoreRequest extends FormRequest
             'year' => 'required',
             'month' => 'required',
             'note' => '',
-            'filename' => 'required|mimes:pdf'
+            'filename' => 'mimes:pdf'
         ];
     }
 }

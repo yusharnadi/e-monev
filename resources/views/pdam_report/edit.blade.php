@@ -19,12 +19,13 @@
               </div>
             @endforeach    
           @endif
-        <form action="{{route('pdam-report.store')}}" class="form" method="POST"  enctype="multipart/form-data">
+        <form action="{{route('pdam-report.update', $report->id)}}" class="form" method="POST"  enctype="multipart/form-data">
           @csrf
+          @method('PUT')
           <div class="form-group row mb-2">
             <label for="year" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tahun Pelaporan</label>
             <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                <input class="form-control" name="year" id="year" type="number" min="1900" max="3000" step="1" value="{{date('Y')}}" required/>
+                <input class="form-control" name="year" id="year" type="number" min="1900" max="3000" step="1" value="{{old('year') ?? $report->year}}" required/>
             </div>
           </div>
           <div class="form-group row mb-2">
@@ -33,7 +34,7 @@
               <select name="month" id="month" class="form-control" required>
                 <option value="">Pilih Bulan</option>
                 @foreach ($bulan as $item)
-                    <option value="{{$item}}">{{$item}}</option>
+                    <option value="{{$item}}" @selected($item == $report->month) >{{$item}}</option>
                 @endforeach
               </select>
             </div>
@@ -41,14 +42,14 @@
           <div class="form-group row mb-2"> 
             <label for="filename" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen Laporan (*pdf)</label>
             <div class="custom-file col col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-3">
-                <input type="file" class="custom-file-input" id="filename" name="filename" required/>
+                <input type="file" class="custom-file-input" id="filename" name="filename"/>
                 <label class="custom-file-label" for="customFile">Pilih Dokumen</label>
               </div>
           </div>
           <div class="form-group row mb-2">
             <label for="note" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Catatan / Keterangan</label>
             <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                <textarea name="note" id="note" class="form-control" style="height: 100px;">{{old('note')}}</textarea>
+                <textarea name="note" id="note" class="form-control" style="height: 100px;">{{old('note') ?? $report->note}}</textarea>
             </div>
           </div>
           
