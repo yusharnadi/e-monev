@@ -29,6 +29,11 @@ class KinerjaService implements KinerjaServiceInterface
         return $this->model->findOrFail($id);
     }
 
+    public function getByYear(int $year)
+    {
+        return $this->model->where('tahun', $year)->where('periode', 'Tahunan')->first();
+    }
+
     public function update(int $id, array $attributes)
     {
         try {
