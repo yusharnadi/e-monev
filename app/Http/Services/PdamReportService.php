@@ -19,6 +19,15 @@ class PdamReportService implements PdamReportServiceInterface
             ->get();
     }
 
+    public function getLimit($limit)
+    {
+        return $this->model
+            ->orderBy('year', 'desc')
+            ->orderBy('id', 'desc')
+            ->limit($limit)
+            ->get();
+    }
+
     public function getById($id)
     {
         return $this->model->findOrFail($id);
