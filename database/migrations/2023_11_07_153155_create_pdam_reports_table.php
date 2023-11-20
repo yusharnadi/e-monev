@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('month');
             $table->string('year');
             $table->string('filename');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
