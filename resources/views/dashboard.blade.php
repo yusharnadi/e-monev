@@ -7,6 +7,16 @@
 @endsection
 @section('content')
 <div class="row">
+  <div class="col-12 mb-4">
+    <div class="hero bg-primary text-white">
+      <div class="hero-inner">
+        <h2>Welcome Back, {{ (auth()->user()) ? auth()->user()->name : ''}} !</h2>
+        <p class="lead">Dashboard ini menampilkan data periode tahun {{$tahun}}.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
       <div class="card-icon bg-primary">
@@ -55,7 +65,7 @@
         <h4>Grafik Periode Triwulan {{$tahun}}</h4>
       </div>
       <div class="card-body">
-        
+        <canvas id="myChart"></canvas>
       </div>
     </div>
   </div>
@@ -105,6 +115,36 @@
         </ul>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header">
+        <h4>Laporan Bulanan</h4>
+        <div class="card-header-action">
+          <a href="{{route('pdam-report.index')}}" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Tahun</th>
+                <th>Bulan</th>
+                <th>File</th>
+                <th>Created at</th>
+              </tr>
+              @foreach ($reports as $report)
+              <tr>
+                <td>{{$report->year}}</td>
+                <td>{{$report->month}}</td>
+                <td><a class="btn btn-warning rounded btn-sm" href="{{asset('uploads/' . $report->filename)}}">Unduh</a></td>
+                <td>July 19, 2018</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 @endsection
@@ -113,12 +153,12 @@
 <script>
   var ctx = document.getElementById('myChart');
   var myChart = new Chart(ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
-          labels: ['aspek 1', 'aspek 2', 'aspek 3', 'aspek 4', 'aspek 5', 'aspek 6', 'aspek 7'],
+          labels: ['Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV'],
           datasets: [{
-              label: 'Status Laporan berdasarkan aspek',
-              data: [10, 20,30,40, 50,60,70],
+              label: 'Nilai Capaian',
+              data: [3.09, 3.1, 3.2],
               backgroundColor: [
                   'rgba(153, 102, 255, 0.2)',
               ],
@@ -135,61 +175,6 @@
               }
           }
       }
-  });
-
-  var ctxLaporan = document.getElementById('laporanChart');
-  var laporanChart = new Chart(ctxLaporan, {
-    type: 'doughnut',
-    data: {
-        labels: ['Sudah Lapor', 'Belum Lapor'],
-        datasets: [
-          {
-            label: 'Dataset 1',
-            data: [20,10],
-            backgroundColor: ['rgba(153, 102, 255, 1)','rgb(255,99,132)' ],
-          }
-        ]
-      },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          // text: 'Chart.js Doughnut Chart'
-        }
-      }
-    },
-  });
-
-  var ctxMonev = document.getElementById('monevChart');
-  var monevChart = new Chart(ctxMonev, {
-    type: 'doughnut',
-    data: {
-        labels: ['Sudah dimonev', 'Belum dimonev'],
-        datasets: [
-          {
-            label: 'Dataset 1',
-            data: [20,10],
-            backgroundColor: ['rgba(153, 102, 255, 1)','rgb(255,99,132)' ]
-          }
-        ]
-      },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          // text: 'Chart.js Doughnut Chart'
-        },
-        weight: 2
-      }
-    },
   });
 </script>
 @endpush

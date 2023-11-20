@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\KinerjaServiceInterface;
+use App\Http\Services\PdamReportServiceInterface;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function __construct(private KinerjaServiceInterface $kinerjaService)
+    public function __construct(private KinerjaServiceInterface $kinerjaService, private PdamReportServiceInterface $pdamReportService)
     {
     }
     public function index()
@@ -17,6 +18,8 @@ class DashboardController extends Controller
         // dd($kinerja);
         $penilaian = calculateBpspam($kinerja);
         // dd($penilaian);
-        return view('dashboard', ['tahun' => $year, 'penilaian' => $penilaian, 'kinerja' => $kinerja]);
+        $reports = $this->pdamReportService->getLimit(3);
+        // dd($report);
+        return view('dashboard', ['tahun' => $year, 'penilaian' => $penilaian, 'kinerja' => $kinerja, 'reports' => $reports]);
     }
 }
