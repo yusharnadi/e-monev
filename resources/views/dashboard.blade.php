@@ -8,111 +8,101 @@
 @section('content')
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-    <div class="card">
-      <div class="card-wrap">
-        <div class="card-body">
-          <div class="row">
-            <div class="form-group col-sm-6">
-              <label for="tahun">Department</label>
-              <select name="department_id" id="select-department" class="form-control select2">
-                @foreach ($departments as $department)
-                    <option value="{{$department->department_id}}" @selected($department_id == $department->department_id)>{{$department->department_fullname}}</option>
-                @endforeach
-              </select> 
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="select-semester">Indikator</label>
-              <select name="indicator_id" id="select-indicator" class="form-control select2">
-                @foreach ($indicators as $indicator)
-                    <option value="{{$indicator->indicator_id}}" @selected($indicator_id == $indicator->indicator_id)>{{$indicator->indicator_name}}</option>
-                @endforeach
-              </select> 
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-sm-4">
-              <label for="tahun">Tahun</label>
-              <input type="number" id="tahun" name="tahun" class="form-control" placeholder="2022" value="{{$tahun}}" min="2021" max="2100">
-            </div>
-            <div class="form-group col-sm-4">
-              <label for="select-semester">Semester</label>
-              <select name="semester" id="select-semester" class="form-control">
-                  <option value="1" {{$semester == 1 ? 'selected':''}}>1</option>
-                  <option value="2" {{$semester == 2 ? 'selected':''}}>2</option>
-              </select>
-            </div>
-            <div class="form-group col-sm-4">
-              <label for="select-semester">&nbsp;</label>
-              <button class="btn btn-primary form-control">Filter</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> 
-  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-    {{-- <div class="card card-statistic-1">
+    <div class="card card-statistic-1">
       <div class="card-icon bg-primary">
-        <i class="fas fa-book"></i>
+        <i class="fas fa-paste"></i>
       </div>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Month</h4>
+          <h4>Bobot Nilai {{$tahun}}</h4>
         </div>
         <div class="card-body">
-          10 CD
+          {{$penilaian['total_bobot'] ?? 0}}
         </div>
       </div>
-    </div> --}}
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      @if ($penilaian['kategori_penilaian'] == 'Sehat')
+        <div class="card-icon bg-success">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @elseif($penilaian['kategori_penilaian'] == 'Kurang Sehat')
+        <div class="card-icon bg-warning">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @else
+        <div class="card-icon bg-danger">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @endif
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>{{$tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['kategori_penilaian'] ?? '-'}}
+        </div>
+      </div>
+    </div>
+  </div>               
+</div>
+<div class="row">
+  <div class="col-lg-8 col-md-6 col-sm-6 col-12">
     <div class="card">
       <div class="card-header">
-        <h4>Informasi</h4>
+        <h4>Grafik Periode Triwulan {{$tahun}}</h4>
       </div>
       <div class="card-body">
-        {{-- <div class="alert alert-warning alert-has-icon">
-          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-          <div class="alert-body">
-            <div class="alert-title">Pengumuman !</div>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi nam pariatur in praesentium optio sint ab suscipit exercitationem eos dolorum facilis qui ipsa molestiae aliquam enim voluptatem architecto, at error quo veritatis? Est facere ducimus, odio laboriosam cum libero vel praesentium reprehenderit illo doloribus sit
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Capaian Menurut Aspek {{$tahun}}</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled list-unstyled-border">
+          <li class="media">
+            <div class="d-flex justify-content-center align-items-center rounded bg-info text-white mr-4" style="font-size: 24px; width: 30px; height:30px;">
+              <i class="fas fa-wallet"></i>
             </div>
-        </div> --}}
-        <ul>
-          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt.</li>
+            <div class="media-body">
+              <div class="media-right">{{$penilaian['bobot_keuangan']}}</div>
+              <div class="media-title">Aspek Keuangan</div>
+            </div>
+          </li>
+          <li class="media">
+            <div class="d-flex justify-content-center align-items-center rounded bg-primary text-white mr-4" style="font-size: 24px; width: 30px; height:30px;">
+              <i class="far fa-thumbs-up"></i>
+            </div>
+            <div class="media-body">
+              <div class="media-right">{{$penilaian['bobot_pelayanan']}}</div>
+              <div class="media-title">Aspek Pelayanan</div>
+            </div>
+          </li>
+          <li class="media">
+            <div class="d-flex justify-content-center align-items-center rounded bg-warning text-white mr-4" style="font-size: 24px; width: 30px; height:30px;">
+              <i class="fas fa-tint"></i>
+            </div>
+            <div class="media-body">
+              <div class="media-right">{{$penilaian['bobot_produksi']}}</div>
+              <div class="media-title">Aspek Operasi</div>
+            </div>
+          </li>
+          <li class="media">
+            <div class="d-flex justify-content-center align-items-center rounded bg-danger text-white mr-4" style="font-size: 24px; width: 30px; height:30px;">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="media-body">
+              <div class="media-right">{{$penilaian['bobot_sdm']}}</div>
+              <div class="media-title">Aspek SDM</div>
+            </div>
+          </li>
         </ul>
-      </div>
-    </div>
-  </div>                 
-</div>
-<div class="row">
-  <div class="col-6">
-    <div class="card">
-      <div class="card-header">
-        <h4>Pelaporan</h4>
-      </div>
-      <div class="card-body">
-        <canvas id="laporanChart" style="height: 150px;width:100%"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="card">
-      <div class="card-header">
-        <h4>Monev</h4>
-      </div>
-      <div class="card-body">
-        <canvas id="monevChart" style="height: 150px;width:100%"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-body">
-        <canvas id="myChart" style="height: 350px;width:100%"></canvas>
       </div>
     </div>
   </div>
