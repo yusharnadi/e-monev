@@ -125,6 +125,7 @@ function calculateBpspam($kinerja)
     $bobot_keuangan = 0;
     $bobot_pelayanan = 0;
     $bobot_produksi = 0;
+    $bobot_sdm = 0;
 
     $kategori_penilaian = '';
 
@@ -466,8 +467,6 @@ function calculateBpspam($kinerja)
         $bobot_produksi = round($efisiensi_produksi_bobot + $tingkat_kehilangan_bobot + $jam_operasi_bobot + $tekanan_air_bobot + $penggantian_bobot, 2);
         $bobot_sdm = round($rasio_pegawai_bobot + $rasio_diklat_bobot + $biaya_diklat_bobot, 2);
     }
-
-
 
     $result['roe_kondisi'] = $roe_kondisi;
     $result['roe_nilai'] = $roe_nilai;
