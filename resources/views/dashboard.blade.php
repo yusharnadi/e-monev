@@ -158,7 +158,7 @@
           labels: ['Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV'],
           datasets: [{
               label: 'Nilai Capaian',
-              data: [3.09, 3.1, 3.2],
+              // data: [],
               backgroundColor: [
                   'rgba(153, 102, 255, 0.2)',
               ],
@@ -189,6 +189,35 @@
       if(jQuery().select2) {
         $(".select2").select2();
       }
+
+      const fetchGrafik = function(){
+
+            $.ajax(
+                {
+                    url: '{{route("kinerja.periode.year")}}',
+                    method:'GET',
+                    cache:false,
+                }
+            )
+            .done(function(data){
+
+                if(data.data){
+                  myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_1);
+                  myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_2);
+                  myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_3);
+                  myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_4);
+                }
+                
+
+                myChart.update();
+                
+            })
+            .fail(function(){
+                alert('Gagal mengambil grafik data.')
+            })
+        }
+
+        fetchGrafik();
     });
 </script>
 @endpush

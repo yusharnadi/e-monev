@@ -29,19 +29,19 @@ class KinerjaPdamController extends Controller
             $kinerja_triwulan_4 = $this->kinerjaService->getPeriodYear($year, 'Triwulan IV');
 
             if ($kinerja_triwulan_1 != null) {
-                $penilaian_triwulan_1 = calculateBpspam($kinerja_triwulan_1);
+                $penilaian_triwulan_1 = calculateBpspam($kinerja_triwulan_1)['total_bobot'];
             }
 
             if ($kinerja_triwulan_2 != null) {
-                $penilaian_triwulan_2 = calculateBpspam($kinerja_triwulan_2);
+                $penilaian_triwulan_2 = calculateBpspam($kinerja_triwulan_2)['total_bobot'];
             }
 
             if ($kinerja_triwulan_3 != null) {
-                $penilaian_triwulan_3 = calculateBpspam($kinerja_triwulan_3);
+                $penilaian_triwulan_3 = calculateBpspam($kinerja_triwulan_3)['total_bobot'];
             }
 
             if ($kinerja_triwulan_4 != null) {
-                $penilaian_triwulan_4 = calculateBpspam($kinerja_triwulan_4);
+                $penilaian_triwulan_4 = calculateBpspam($kinerja_triwulan_4)['total_bobot'];
             }
 
             $data['penilaian_triwulan_1'] = $penilaian_triwulan_1;
