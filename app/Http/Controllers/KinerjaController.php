@@ -188,7 +188,8 @@ class KinerjaController extends Controller
     {
         if (!Auth::user()->can('update kinerja pdam')) abort(403);
         $kinerja = $this->kinerjaService->getById($id);
-        return view('kinerja.edit', ['kinerja' => $kinerja]);
+        $period = array('Tahunan', 'Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
+        return view('kinerja.edit', ['kinerja' => $kinerja, 'period' => $period]);
     }
 
     /**

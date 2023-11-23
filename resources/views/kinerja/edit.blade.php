@@ -10,6 +10,9 @@
 @section('content')
 <div class="row">
     <div class="col-12">
+        <form action="{{route('kinerja.update', $kinerja->id)}}" method="POST">
+            @csrf
+            @method('PUT')
         <div class="card">
             <div class="card-body">
             @if ($errors->any())
@@ -25,13 +28,25 @@
             @if (session('message'))
                 <div class="alert alert-primary">{{session('message')}}</div>
             @endif
-            <div class="section-title mt-0">Tahun : {{$kinerja->tahun}}</div>
-                <div class="section-title mt-0">Periode : {{$kinerja->periode}}</div>
+            <div class="form-group row mb-2">
+                <label for="year" class="col-form-label text-md-right col-12 col-md-2 col-lg-2">Tahun</label>
+                <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                    <input class="form-control" name="tahun" id="year" type="number" min="1900" max="3000" step="1" value="{{$kinerja->tahun}}" required/>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="month" class="col-form-label text-md-right col-12 col-md-2 col-lg-2">Periode</label>
+                <div class="col col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                  <select name="periode" id="month" class="form-control" required>
+                    <option value="">Pilih Periode</option>
+                        @foreach ($period as $p)
+                            <option value="{{$p}}" @selected($p == $kinerja->periode)>{{$p}}</option>
+                        @endforeach
+                  </select>
+                </div>
             </div>
         </div>
-        <form action="{{route('kinerja.update', $kinerja->id)}}" method="POST">
-            @csrf
-            @method('PUT')
+        
             <div class="card">
                 <div class="card-header">
                 <h4>Data Keuangan</h4>
