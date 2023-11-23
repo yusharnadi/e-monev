@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KinerjaController;
 use App\Http\Controllers\MonevPdamController;
 use App\Http\Controllers\PdamReportController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('kinerja', KinerjaController::class);
     Route::resource('pdam-report', PdamReportController::class);
     Route::resource('users', UserController::class);
-    Route::resource('role', KinerjaController::class);
+    Route::resource('role', RoleController::class);
 
     Route::get('kinerja/create/period', [KinerjaController::class, 'showPeriod'])->name('kinerja.show.period');
     Route::post('kinerja/create/period', [KinerjaController::class, 'storePeriod'])->name('kinerja.store.period');
