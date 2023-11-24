@@ -329,7 +329,7 @@
 								<li><a href="https://www.instagram.com/bagianperekonomian.singkawang/"><span class="fa fa-instagram"></span></a></li>
 								<li><a href="#"><span class="icon ico-facebook"></span></a></li>
 								<li><a href="https://www.youtube.com/channel/UChPpebSOlGC_i86TSh8c_Ew"><span class="fa fa-youtube"></span></a></li>
-								<li><a href="mailto:setda@singkawangkota.go.id"><span class="icon ico-mail"></span></a></li>
+								<li><a href="mailto:perekonomiansetdaskw@gmail.com"><span class="icon ico-mail"></span></a></li>
 							</ul>
 							<!-- Social Networks of the page end -->
 						</div>
