@@ -11,7 +11,7 @@
     <div class="hero bg-primary text-white">
       <div class="hero-inner">
         <h2>Welcome Back, {{ (auth()->user()) ? auth()->user()->name : ''}} !</h2>
-        <p class="lead">Dashboard ini menampilkan data periode tahun {{$tahun}}.</p>
+        <p class="lead">Dashboard ini menampilkan data periode tahun {{$kinerja->tahun}}.</p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Bobot Nilai {{$tahun}}</h4>
+          <h4>Bobot Nilai {{$kinerja->tahun}}</h4>
         </div>
         <div class="card-body">
           {{$penilaian['total_bobot'] ?? 0}}
@@ -49,7 +49,7 @@
       @endif
       <div class="card-wrap">
         <div class="card-header">
-          <h4>{{$tahun}}</h4>
+          <h4>{{$kinerja->tahun}}</h4>
         </div>
         <div class="card-body">
           {{$penilaian['kategori_penilaian'] ?? '-'}}
@@ -62,7 +62,7 @@
   <div class="col-lg-8 col-md-6 col-sm-6 col-12">
     <div class="card">
       <div class="card-header">
-        <h4>Grafik Periode Triwulan {{$tahun}}</h4>
+        <h4>Grafik Periode Triwulan {{$kinerja->tahun}}</h4>
       </div>
       <div class="card-body">
         <canvas id="myChart"></canvas>
@@ -72,7 +72,7 @@
   <div class="col-lg-4 col-md-6 col-sm-6 col-12">
     <div class="card">
       <div class="card-header">
-        <h4>Capaian Menurut Aspek {{$tahun}}</h4>
+        <h4>Capaian Menurut Aspek {{$kinerja->tahun}}</h4>
       </div>
       <div class="card-body">
         <ul class="list-unstyled list-unstyled-border">

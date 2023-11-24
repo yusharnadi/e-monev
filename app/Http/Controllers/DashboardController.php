@@ -13,13 +13,12 @@ class DashboardController extends Controller
     }
     public function index()
     {
-        $year = date('Y') - 1;
-        $kinerja = $this->kinerjaService->getByYear($year);
+        $kinerja = $this->kinerjaService->getLatestYear();
         // dd($kinerja);
         $penilaian = calculateBpspam($kinerja);
         // dd($penilaian);
         $reports = $this->pdamReportService->getLimit(3);
         // dd($report);
-        return view('dashboard', ['tahun' => $year, 'penilaian' => $penilaian, 'kinerja' => $kinerja, 'reports' => $reports]);
+        return view('dashboard', ['penilaian' => $penilaian, 'kinerja' => $kinerja, 'reports' => $reports]);
     }
 }
