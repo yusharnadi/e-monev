@@ -9,6 +9,7 @@ interface KinerjaServiceInterface
     public function getAll();
     public function getById(int $id);
     public function getByYear(int $year);
+    public function getLatestYear();
     public function getPeriodYear(int $year, string $period);
     public function create(array $attributes);
     public function update(int $id, array $attributes);
