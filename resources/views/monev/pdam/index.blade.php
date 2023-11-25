@@ -43,7 +43,7 @@
                                 <td><span class="badge {{$penilaian['badge']}}">{{$penilaian['kategori_penilaian']}}</span></td>
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
-                                    <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
+                                    <a target="_blank" href="{{route('monev.pdam.export', $kinerja->id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
                                     <a href="{{route('monev.pdam.detail', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>

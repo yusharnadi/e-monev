@@ -12,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('kinerja.show.period')}}" class="btn btn-icon icon-left btn-danger mb-2"><i class="fas fa-file-pdf"></i>Export</a>
+                    <a target="_blank" href="{{route('monev.pdam.export', $kinerja->id)}}" class="btn btn-icon icon-left btn-danger mb-2"><i class="fas fa-file-pdf"></i>Export</a>
 
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
