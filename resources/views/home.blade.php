@@ -61,14 +61,13 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<a href="{{route('login')}}" class="btn btn-default btn-white">Login</a>
+						<a href="{{route('dashboard')}}" class="btn btn-default btn-white">Login</a>
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="#" data-scroll-nav="0">Beranda</a></li>
 								<li><a href="#" data-scroll-nav="1">Aspek</a></li>
 								<li><a href="#" data-scroll-nav="2">Penilaian Kinerja</a></li>
 								<li><a href="#" data-scroll-nav="3">Kontak</a></li>
-								{{-- <li><a href="#" data-scroll-nav="4">pricing</a></li> --}}
 							</ul>
 						</div>
 					</nav>
@@ -88,7 +87,6 @@
 								<h1>SI PERKASA</h1>
 								<p>Optimalisasi Pembinaan (Evaluasi dan Monitoring) Perumda melalui Sistem Informasi pada Bagian Perekonomian dan SDA AMGP Kota Singkawang.</p>
 								<a href="#" class="btn btn-default btn-white">Learn More</a>
-								{{-- <a href="#" class="btn btn-default btn-white">Download</a> --}}
 							</header>
 						</div>
 					</div>
@@ -133,14 +131,6 @@
 						<h3><a href="#">Aspek SDM</a></h3>
 						<p>Penilaian kinerja aspek sumber daya manusia bertujuan untuk mengukur tingkat inovasi dan pembelajaran dalam kaitannya dengan pengelolaan PDAM.</p>
 					</li>
-					
-					{{-- <li>
-						<div class="icon-holder">
-							<img src="{{asset('landing')}}/images/calendar.svg" width="49" height="51" alt="icon calandar" class="img-responsive">
-						</div>
-						<h3><a href="#">Daily report</a></h3>
-						<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
-					</li> --}}
 				</ul>
 				<!-- Features of the page end -->
 			</section>
@@ -193,79 +183,7 @@
 				</div>
 			</aside>
 			<!-- Demo block of the page end -->
-			<!-- Testimonials of the page -->
-			{{-- <section class="testimonials text-center" data-scroll-index="3">
-				<div class="container">
-					<div class="row">
-						<header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
-							<h2>More than <span class="text-bright">20,000+ Customers</span>, <br>see some wishes here.</h2>
-						</header>
-					</div>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<!-- Testimonials gallery of the page -->
-						<div class="testimonials-gallery">
-							<!-- Testimonials mask of the page -->
-							<div class="testimonials-mask">
-								<div class="testimonials-slide">
-									<blockquote>
-										<q>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium<br> lectorum. Mirum est notare quam littera gothica, </q>
-										<cite>
-											<strong class="name">David Ramon</strong>
-											<span class="subtitle">Project Manager, D360-Studio</span>
-										</cite>
-									</blockquote>
-								</div>
-							</div>
-							<!-- Testimonials mask of the page end -->
-							<!-- Testimonials mask of the page -->
-							<div class="testimonials-mask">
-								<div class="testimonials-slide">
-									<blockquote>
-										<q>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium<br> lectorum. Mirum est notare quam littera gothica, </q>
-										<cite>
-											<strong class="name">David Ramon</strong>
-											<span class="subtitle">Project Manager, D360-Studio</span>
-										</cite>
-									</blockquote>
-								</div>
-							</div>
-							<!-- Testimonials mask of the page end -->
-							<!-- Testimonials mask of the page -->
-							<div class="testimonials-mask">
-								<div class="testimonials-slide">
-									<blockquote>
-										<q>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium<br> lectorum. Mirum est notare quam littera gothica, </q>
-										<cite>
-											<strong class="name">David Ramon</strong>
-											<span class="subtitle">Project Manager, D360-Studio</span>
-										</cite>
-									</blockquote>
-								</div>
-							</div>
-							<!-- Testimonials mask of the page end -->
-						</div>
-						<!-- Testimonials gallery of the page end -->
-					</div>
-				</div>
-				<aside class="container">
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="aligncenter col-xs-12">
-								<img src="http://placehold.it/850x415" alt="image description" class="img-responsive">
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12 heading-wrap btn-holder col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
-							<h2>Our software is totally customisable and easy to use, <span class="text-bright">no need to know anything!</span></h2>
-							<a href="#" class="btn btn-info">Purchase now</a>
-						</div>
-					</div>
-				</aside>
-			</section> --}}
-			<!-- Testimonials of the page end -->
+			
 			<!-- Video block of the page -->
 			{{-- <aside class="video-block">
 				<div class="video overlay">
