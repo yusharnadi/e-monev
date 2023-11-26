@@ -49,7 +49,7 @@ class MonevPdamController extends Controller
         $kinerja = $this->kinerjaService->getById($id);
         $penilaian = calculateBpspam($kinerja);
         // return view('monev.pdam.export', ['kinerja' => $kinerja, 'penilaian' => $penilaian]);
-        $pdf = Pdf::loadView('monev.pdam.export', ['kinerja' => $kinerja, 'penilaian' => $penilaian])->setPaper('a4', 'legal')->setWarnings(false);
-        return $pdf->stream('monev.pdf');
+        $pdf = Pdf::loadView('monev.pdam.export', ['kinerja' => $kinerja, 'penilaian' => $penilaian])->setPaper('legal', 'potrait')->setWarnings(false);
+        return $pdf->stream('Rekap Hasil Monev.pdf');
     }
 }
