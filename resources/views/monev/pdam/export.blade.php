@@ -63,7 +63,7 @@
 	</style>
 </head>
 <body>
-    <h3>Monitoring & Evaluasi Kinerja</h3>
+    <h3>REKAPIPUTASLI MONITOING & EVALUASI KINERJA</h3>
     <h4>PERUMDA AIR MINUM KOTA SINGKAWANG</h4>
     <h3>Tahun {{$kinerja->tahun}}</h3>
     @if ($kinerja->periode != "Tahunan")
