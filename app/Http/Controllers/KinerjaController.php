@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\KinerjaServiceInterface;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -216,5 +217,14 @@ class KinerjaController extends Controller
             return redirect()->route('kinerja.index')->with('message', 'Berhasil menghapus data.');
         }
         return redirect()->route('kinerja.index')->with('error', 'Gagal menghapus data.');
+    }
+
+    public function exportPdf(string $id)
+    {
+        if (!Auth::user()->can('read kinerja pdam')) abort(403);
+        $kinerja = $this->kinerjaService->getById($id);
+        // return view('kinerja.export', ['kinerja' => $kinerja]);
+        $pdf = Pdf::loadView('kinerja.export', ['kinerja' => $kinerja])->setPaper('legal', 'potrait')->setWarnings(false);
+        return $pdf->stream('Rekap Kinerja PDAM.pdf');
     }
 }
