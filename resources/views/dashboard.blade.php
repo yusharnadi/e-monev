@@ -16,7 +16,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+{{-- <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
       <div class="card-icon bg-primary">
@@ -57,12 +57,20 @@
       </div>
     </div>
   </div>               
-</div>
+</div> --}}
 <div class="row">
   <div class="col-lg-8 col-md-6 col-sm-6 col-12">
     <div class="card">
       <div class="card-header">
-        <h4>Grafik Periode Triwulan {{$kinerja->tahun}}</h4>
+        <h4>Grafik Penilaian Kinerja PDAM</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="chartTahun"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4>Grafik Penilaian Kinerja Periode Triwulan {{$kinerja->tahun}}</h4>
       </div>
       <div class="card-body">
         <canvas id="myChart"></canvas>
@@ -70,6 +78,42 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      @if ($penilaian['kategori_penilaian'] == 'Sehat')
+        <div class="card-icon bg-success">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @elseif($penilaian['kategori_penilaian'] == 'Kurang Sehat')
+        <div class="card-icon bg-warning">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @else
+        <div class="card-icon bg-danger">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @endif
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>{{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['kategori_penilaian'] ?? '-'}}
+        </div>
+      </div>
+    </div>
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-primary">
+        <i class="fas fa-paste"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Bobot Nilai {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['total_bobot'] ?? 0}}
+        </div>
+      </div>
+    </div>
     <div class="card">
       <div class="card-header">
         <h4>Capaian Menurut Aspek {{$kinerja->tahun}}</h4>
@@ -158,12 +202,38 @@
           labels: ['Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV'],
           datasets: [{
               label: 'Nilai Capaian',
-              // data: [],
+              data: [],
               backgroundColor: [
                   'rgba(153, 102, 255, 0.2)',
               ],
               borderColor: [
                   'rgba(153, 102, 255, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+
+  var ctxTahun = document.getElementById('chartTahun');
+  var chartTahun = new Chart(ctxTahun, {
+      type: 'bar',
+      data: {
+          labels: ['2022','2023'],
+          datasets: [{
+              label: 'Nilai Capaian',
+              data: [],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+              ],
+              borderColor: [
+                'rgb(255, 99, 132)',
               ],
               borderWidth: 1
           }]
@@ -185,13 +255,8 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
   $(document).ready( function () {
-      // Select2
-      if(jQuery().select2) {
-        $(".select2").select2();
-      }
 
       const fetchGrafik = function(){
-
             $.ajax(
                 {
                     url: '{{route("kinerja.periode.year")}}',
@@ -207,7 +272,6 @@
                   myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_3);
                   myChart.data.datasets[0].data.push(data.data.penilaian_triwulan_4);
                 }
-                
 
                 myChart.update();
                 
@@ -215,7 +279,7 @@
             .fail(function(){
                 alert('Gagal mengambil grafik data.')
             })
-        }
+        };
 
         fetchGrafik();
     });
