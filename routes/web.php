@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::get('kinerja/create/resource', [KinerjaController::class, 'showResource'])->name('kinerja.show.resource');
     Route::post('kinerja/create/resource', [KinerjaController::class, 'storeResource'])->name('kinerja.store.resource');
 
+    Route::get('kinerja/{id}/export', [KinerjaController::class, 'exportPdf'])->name('kinerja.export');
+
     Route::get('pdam/monev', [MonevPdamController::class, 'index'])->name('monev.pdam.index');
     Route::get('pdam/monev/{id}/detail', [MonevPdamController::class, 'detail'])->name('monev.pdam.detail');
     Route::put('pdam/monev/{id}/update', [MonevPdamController::class, 'updateCatatanMonitoring'])->name('monev.pdam.update');
