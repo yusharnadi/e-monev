@@ -25,6 +25,7 @@
             @if (session('message'))
                 <div class="alert alert-primary">{{session('message')}}</div>
             @endif
+            <a target="_blank" href="{{route('kinerja.export', $kinerja->id)}}" class="btn btn-icon icon-left btn-danger mb-2"><i class="fas fa-file-pdf"></i>Export</a>
             <div class="section-title mt-0">Tahun : {{$kinerja->tahun}}</div>
                 <div class="section-title mt-0">Periode : {{$kinerja->periode}}</div>
             </div>

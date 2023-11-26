@@ -37,7 +37,7 @@
                                 </td>
                                 <td>{{$kinerja->created_at}}</td>
                                 <td>
-                                    <a href="{{route('kinerja.export', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
+                                    <a target="_blank" href="{{route('kinerja.export', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-file-pdf"></i></a>
                                     <a href="{{route('kinerja.show', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                                     <a href="{{route('kinerja.edit', $kinerja['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <a data-toggles="modal" id="smallButton" data-target="#deleteModal" data-action="{{route('kinerja.destroy', $kinerja->id)}}" class="btn btn-icon btn-sm btn-danger btn-fire" href="#"><i class="fas fa-trash"></i></a>
