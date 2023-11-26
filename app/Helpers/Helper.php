@@ -40,6 +40,12 @@ function rupiah($angka)
     return $hasil_rupiah;
 }
 
+function format_angka($angka)
+{
+    $angka = number_format($angka, 0, ',', '.');
+    return $angka;
+}
+
 
 function uploadFile($file)
 {
