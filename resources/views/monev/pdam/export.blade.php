@@ -60,6 +60,19 @@
             text-align: center;
             line-height: 0.2;
         }
+        .catatan {
+            text-align: justify;
+        }
+        footer {
+                position: fixed; 
+                padding-top: 10px;
+                bottom: 0cm; 
+                left: 0cm; 
+                right: 0cm;
+                color: #000;
+                text-align: center;
+                line-height: 1.5cm;
+        }
 	</style>
 </head>
 <body>
@@ -234,5 +247,12 @@
             </tr>
 		</tbody>
 	</table>
+    <div class="catatan">
+        <strong><p>Catatan Monitoring :</p></strong>
+        <p>{{$kinerja->catatan_monitoring}}</p>
+    </div>
+    <footer>
+        <p><i>Dokumen ini di buat otomatis oleh Aplikasi SIPERKASA (https://siperkasa.singkawangkota.go.id)</i></p>
+    </footer>
 </body>
 </html>
