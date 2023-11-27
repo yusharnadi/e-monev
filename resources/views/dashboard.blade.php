@@ -163,7 +163,7 @@
       <div class="card-header">
         <h4>Laporan Bulanan</h4>
         <div class="card-header-action">
-          <a href="{{route('pdam-report.index')}}" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+          <a href="{{route('pdam-report.index')}}" class="btn btn-danger">Lihat Detail <i class="fas fa-chevron-right"></i></a>
         </div>
       </div>
       <div class="card-body p-0">
@@ -181,7 +181,7 @@
                 <td>{{$report->year}}</td>
                 <td>{{$report->month}}</td>
                 <td><a class="btn btn-warning rounded btn-sm" href="{{asset('uploads/' . $report->filename)}}">Unduh</a></td>
-                <td>July 19, 2018</td>
+                <td>{{$report->created_at}}</td>
               </tr>
               @endforeach
             </tbody>
@@ -225,9 +225,9 @@
   var chartTahun = new Chart(ctxTahun, {
       type: 'bar',
       data: {
-          labels: ['2022','2023'],
+          labels: [],
           datasets: [{
-              label: 'Nilai Capaian',
+              label: 'Nilai Capaian Tahunan',
               data: [],
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -281,7 +281,37 @@
             })
         };
 
+        const fetchGrafikTahun = function(){
+            $.ajax(
+                {
+                    url: '{{route("kinerja.year")}}',
+                    method:'GET',
+                    cache:false,
+                }
+            )
+            .done(function(data){
+
+                
+
+                if(data.data.length > 0){
+                  data.data.map(function(i){
+                    chartTahun.data.labels.push(i.tahun);
+                    chartTahun.data.datasets[0].data.push(i.nilai);
+                  })
+                  
+                  console.log(chartTahun.data.labels);
+                }
+
+                chartTahun.update();
+                
+            })
+            .fail(function(){
+                alert('Gagal mengambil grafik data.')
+            })
+        };
+
         fetchGrafik();
+        fetchGrafikTahun();
     });
 </script>
 @endpush
