@@ -55,4 +55,26 @@ class KinerjaPdamController extends Controller
             return response()->json(['error' => $th->getMessage()]);
         }
     }
+
+    public function getPenilaianYear(){
+        $data = [];
+        try {
+            $kinerjas = $this->kinerjaService->getAllYear();
+
+            if (count($kinerjas) > 0){
+                foreach($kinerjas as $kinerja){
+                    $penilaian = calculateBpspam($kinerja);
+                    $temp = array('tahun' => $kinerja->tahun, 'nilai' => $penilaian['total_bobot']);
+                    $data[] = $temp;
+                }
+                return response()->json(['data' => $data], 200);
+            }
+
+            return response()->json(['error' => 'Data not found.'], 404);
+
+        } catch (\Throwable $th) {
+            Log::error('Kinerja Api Error', ['error' => $th->getMessage()]);
+            return response()->json(['error' => $th->getMessage()]);
+        }
+    }
 }
