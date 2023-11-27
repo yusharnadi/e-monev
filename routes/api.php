@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('kinerja/periode-year', [KinerjaPdamController::class, 'getPeriodeByCurrenyYear'])->name('kinerja.periode.year');
+Route::get('kinerja/year', [KinerjaPdamController::class, 'getPenilaianYear'])->name('kinerja.year');
