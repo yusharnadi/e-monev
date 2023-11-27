@@ -34,6 +34,11 @@ class KinerjaService implements KinerjaServiceInterface
         return $this->model->where('tahun', $year)->where('periode', 'Tahunan')->first();
     }
 
+    public function getAllYear()
+    {
+        return $this->model->where('periode', 'Tahunan')->orderBy('tahun', 'asc')->get();
+    }
+
     public function getLatestYear()
     {
         return $this->model->where('periode', 'Tahunan')->orderBy('tahun', 'DESC')->first();
