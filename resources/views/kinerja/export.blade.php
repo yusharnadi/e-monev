@@ -60,6 +60,16 @@
             text-align: center;
             line-height: 0.2;
         }
+        footer {
+                position: fixed; 
+                padding-top: 10px;
+                bottom: 0cm; 
+                left: 0cm; 
+                right: 0cm;
+                color: #000;
+                text-align: center;
+                line-height: 1.5cm;
+        }
 	</style>
 </head>
 <body>
@@ -226,5 +236,8 @@
             </tr>
 		</tbody>
 	</table>
+    <footer>
+        <p><i>Dokumen ini di buat otomatis oleh Aplikasi SIPERKASA (https://siperkasa.singkawangkota.go.id)</i></p>
+    </footer>
 </body>
 </html>
