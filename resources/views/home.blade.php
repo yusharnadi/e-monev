@@ -47,7 +47,7 @@
 					<div class="logo">
 						<a href="#">
 							<img src="{{asset('landing')}}/images/siperkasa-dark.png" alt="SIPERKASA" class="light img-responsive">
-							<img src="{{asset('landing')}}/images/siperkasa-light.png" alt="SIPERKASA" class="dark img-responsive">
+							<img src="{{asset('landing')}}/images/logo-siperkasa-light.png" alt="SIPERKASA" class="dark img-responsive">
 						</a>
 					</div>
 					<!-- Logo of the page end -->
@@ -67,7 +67,6 @@
 								<li><a href="#" data-scroll-nav="0">Beranda</a></li>
 								<li><a href="#" data-scroll-nav="1">Aspek</a></li>
 								<li><a href="#" data-scroll-nav="2">Penilaian Kinerja</a></li>
-								<li><a href="#" data-scroll-nav="3">Kontak</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -166,7 +165,7 @@
 			</section>
 			<!-- Product Features of the page end -->
 			<!-- Demo block of the page -->
-			<aside class="demo-block">
+			{{-- <aside class="demo-block">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-md-7">
@@ -174,14 +173,14 @@
 							<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam.</p>
 						</div>
 						<div class="col-xs-12 col-md-5">
-                            {{-- <a href="#" class="btn btn-default btn-white">Hubungi Kami</a> --}}
+                            <a href="#" class="btn btn-default btn-white">Hubungi Kami</a>
 							<ul>
 								<li><a href="#" class="btn btn-default btn-white">Hubungi Kami</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-			</aside>
+			</aside> --}}
 			<!-- Demo block of the page end -->
 			
 			<!-- Video block of the page -->
@@ -192,6 +191,8 @@
 				</div>
 			</aside> --}}
 			<!-- Video block of the page end -->
+
+			
 			
 			<!-- Trial block of the page -->
 			<section class="trial-block container">
@@ -222,9 +223,12 @@
 					<div class="col-xs-12">
 						<!-- Logos list of the page -->
 						<ul class="list-unstyled line-slider">
-							<li><a href="#"><img src="{{asset('landing')}}/images/logo-bpspam.png" alt="Logo BPSPAM PUPR" class="img-responsive"></a></li>
-                            <li><a href="#"><img src="{{asset('landing')}}/images/logo-pemkot.png" alt="Logo Singkawang" class="img-responsive"></a></li>
-                            <li><a href="#"><img src="{{asset('landing')}}/images/logo-pdam.png" alt="Logo Pdam Gunung poteng singkawang" class="img-responsive"></a></li>
+							<li><a href="https://www.instagram.com/bppspam/" target="_blank"><img src="{{asset('landing')}}/images/logo-bpspam.png" alt="Logo BPSPAM PUPR" class="img-responsive"></a></li>
+                            <li><a href="https://portal.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-pemkot.png" alt="Logo Singkawang" class="img-responsive"></a></li>
+							<li><a href="https://setda.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-setda.png" alt="Logo SETDA Singkawang" class="img-responsive"></a></li>
+                            <li><a href="https://kominfo.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-kominfo.png" alt="Logo kominfo singkawang" class="img-responsive"></a></li>
+                            <li><a href="https://pdamgunungpoteng.com/" target="_blank"><img src="{{asset('landing')}}/images/logo-pdam.png" alt="Logo Pdam Gunung poteng singkawang" class="img-responsive"></a></li>
+                            <li><a href="http://ppid.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-ppid.png" alt="Logo ppid singkawang" class="img-responsive"></a></li>
 						</ul>
 						<!-- Logos list of the page end -->
 					</div>
