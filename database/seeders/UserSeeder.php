@@ -17,9 +17,16 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
+        $user->name = "yusharnadi";
+        $user->email = "yust.44@gmail.com";
+        $user->password = Hash::make('Mimi#080810');
+        $user->save();
+        $user->assignRole('Administrator');
+
+        $user = new User();
         $user->name = "administrator";
         $user->email = "admin@monev";
-        $user->password = Hash::make('Mimi#080810');
+        $user->password = Hash::make('monev#2023#superadmin');
         $user->save();
         $user->assignRole('Administrator');
 
@@ -38,3 +45,4 @@ class UserSeeder extends Seeder
         $opd->assignRole('Operator PDAM');
     }
 }
+
