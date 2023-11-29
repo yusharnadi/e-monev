@@ -16,8 +16,8 @@
 	<!-- set the Keyword -->
 	<meta name="keywords" content="Sistem Informasi pada Bagian Perekonomian dan SDA, singkawang, setda">
 	<meta name="author" content="Digitaldev">
-    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
-    <link rel="icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('landing/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('landing/images/favicon.ico')}}" type="image/x-icon">
 	<title>Beranda | SIPERKASA</title>
 	<!-- include the site stylesheet -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7COswald:400,700" rel="stylesheet">
@@ -164,10 +164,11 @@
 				</div>
 			</section>
 			<section class="container">
-				<div class="row sameheight-container bg-info">
+				<div class="row sameheight-container">
 					<header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
 						<h2>Grafik Capaian Kinerja Tahunan <span class="text-bright">PDAM</span></h2>
 					</header>
+					<canvas id="chartTahun"></canvas>
 				</div>
 			</section>
 			<!-- Product Features of the page end -->
@@ -200,24 +201,37 @@
 			<!-- Video block of the page end -->
 
 			
-			
+			<section class="container" style="margin-top: 70px;">
+				<div class="row sameheight-container">
+					{{-- <header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
+						<h2>Aplikasi <span class="text-bright">HELLO AMGP</span></h2>
+					</header> --}}
+					<div class="col-xs-12">
+						<img src="{{asset('landing')}}/images/amgp-playstore.jpeg" alt="PDAM SINGKAWANG AMGP" class="img-responsive">
+					</div>
+					<div class="col-xs-12 heading-wrap text-center" style="margin-block: 50px;">
+						<p>Aplikasi ini bagi Pelanggan & Non Pelanggan Perumda AMGP Singkawang, untuk dapat menerima dan melakukan pengaduan atau pasang baru. Pelanggan dapat pula mengetahui tagihan rekening secara detail..</p>
+						<a target="_blank" href="https://play.google.com/store/apps/details?id=com.ssi.infoperumdasingkawang&pcampaignid=web_share" class="btn btn-info text-center">Unduh Sekarang</a>
+					</div>
+				</div>
+			</section>
 			<!-- Trial block of the page -->
-			<section class="trial-block container">
+			{{-- <section class="trial-block container">
 				<div class="row">
 					<div class="alignleft">
-						<img src="http://placehold.it/665x460" alt="image description" class="img-responsive">
+						<img src="{{asset('landing')}}/images/amgp-playstore.jpeg" alt="PDAM SINGKAWANG AMGP" class="img-responsive">
 					</div>
 					<div class="col-xs-12 col-sm-6 descr">
 						<div class="align">
 							<header class="heading-wrap">
-								<h2>Try our free trial today. If you don’t like, you can cancel it anytime!</h2>
+								<h2>Aplikasi Hello AMGP</h2>
 							</header>
-							<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+							<p>Aplikasi ini bagi Pelanggan & Non Pelanggan Perumda AMGP Singkawang, untuk dapat menerima dan melakukan pengaduan atau pasang baru. Pelanggan dapat pula mengetahui tagihan rekening secara detail..</p>
 							<a href="#" class="btn btn-info">Try our demo</a>
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> --}}
 			<!-- Trial block of the page end -->
 			<!-- Brands area of the page -->
 			<aside class="brands-area container">
@@ -289,5 +303,69 @@
 	<!-- include jQuery -->
 	<script src="{{asset('landing')}}/js/jquery.main.js"></script>
 	{{-- <div id="style-changer" data-src="style-changer.html"></div> --}}
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		
+		var ctxTahun = document.getElementById('chartTahun');
+		var chartTahun = new Chart(ctxTahun, {
+			type: 'bar',
+			data: {
+				labels: ['2020', '2021'],
+				datasets: [{
+					label: 'Nilai Capaian Tahunan',
+					data: [2.9, 3.04],
+					backgroundColor: [
+						'rgba(54, 162, 235, 0.2)',
+					],
+					borderColor: [
+						'rgb(54, 162, 235)',
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+
+		$(document).ready( function () {
+
+
+  const fetchGrafikTahun = function(){
+			$.ajax(
+				{
+					url: '{{route("kinerja.year")}}',
+					method:'GET',
+					cache:false,
+				}
+			)
+			.done(function(data){
+
+				
+
+				if(data.data.length > 0){
+					data.data.map(function(i){
+					chartTahun.data.labels.push(i.tahun);
+					chartTahun.data.datasets[0].data.push(i.nilai);
+					})
+					
+					console.log(chartTahun.data.labels);
+				}
+
+				chartTahun.update();
+				
+			})
+			.fail(function(){
+				alert('Gagal mengambil grafik data.')
+			})
+		};
+
+		fetchGrafikTahun();
+	});
+	</script>
 </body>
 </html>
