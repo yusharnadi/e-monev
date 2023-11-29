@@ -25,7 +25,7 @@ class PdamReportStoreRequest extends FormRequest
             'year' => 'required',
             'month' => 'required',
             'note' => '',
-            'filename' => 'required|mimes:pdf'
+            'filename' => 'required|mimes:pdf|max:5000'
         ];
     }
 }
