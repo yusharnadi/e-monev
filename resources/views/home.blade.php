@@ -46,8 +46,8 @@
 					<!-- Logo of the page -->
 					<div class="logo">
 						<a href="#">
-							<img src="{{asset('landing')}}/images/siperkasa-dark.png" alt="SIPERKASA" class="light img-responsive">
-							<img src="{{asset('landing')}}/images/logo-siperkasa-light.png" alt="SIPERKASA" class="dark img-responsive">
+							<img src="{{asset('landing')}}/images/logo-siperkasa.png" alt="SIPERKASA" class="light img-responsive">
+							<img src="{{asset('landing')}}/images/logo-siperkasa.png" alt="SIPERKASA" class="dark img-responsive">
 						</a>
 					</div>
 					<!-- Logo of the page end -->
@@ -163,6 +163,13 @@
 					<!-- img holder of the page end -->
 				</div>
 			</section>
+			<section class="container">
+				<div class="row sameheight-container bg-info">
+					<header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
+						<h2>Grafik Capaian Kinerja Tahunan <span class="text-bright">PDAM</span></h2>
+					</header>
+				</div>
+			</section>
 			<!-- Product Features of the page end -->
 			<!-- Demo block of the page -->
 			{{-- <aside class="demo-block">
@@ -244,7 +251,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 text-center col-sm-6 col-sm-offset-3">
-							<div class="logo"><a href="#"><img src="{{asset('landing')}}/images/siperkasa-dark.png" alt="SIPERKASA"></a></div>
+							<div class="logo"><a href="#"><img src="{{asset('landing')}}/images/logo-siperkasa.png" alt="SIPERKASA"></a></div>
 							<p>Sistem Informasi pada Bagian Perekonomian dan SDA</p>
 							<!-- Social Networks of the page -->
 							<ul class="social-networks">
