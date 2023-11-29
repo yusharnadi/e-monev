@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('pdam-report.create')}}" class="btn btn-info mb-2">Tambah Data</a>
+                    <a href="{{route('pdam-report.create')}}" class="btn btn-info mb-2">Entri Laporan</a>
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
