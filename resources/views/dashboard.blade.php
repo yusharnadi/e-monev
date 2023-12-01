@@ -17,6 +17,190 @@
   </div>
 </div>
 <div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      @if ($penilaian['kategori_penilaian'] == 'Sehat')
+        <div class="card-icon bg-success">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @elseif($penilaian['kategori_penilaian'] == 'Kurang Sehat')
+        <div class="card-icon bg-warning">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @else
+        <div class="card-icon bg-danger">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      @endif
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>{{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['kategori_penilaian'] ?? '-'}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-primary">
+        <i class="fas fa-paste"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Bobot Nilai {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['total_bobot'] ?? 0}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-primary">
+        <i class="fas fa-wallet"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Nilai Aspek Keuangan {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['bobot_keuangan']?? 0}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-info">
+        <i class="far fa-thumbs-up"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Nilai Aspek Pelayanan {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['bobot_pelayanan']?? 0}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-warning">
+        <i class="fas fa-tint"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Nilai Aspek Operasi {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['bobot_produksi']?? 0}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-danger">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Nilai Aspek SDM {{$kinerja->tahun}}</h4>
+        </div>
+        <div class="card-body">
+          {{$penilaian['bobot_sdm']?? 0}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Grafik Penilaian Kinerja PDAM</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="chartTahun"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h4>Laporan Triwulan</h4>
+        <div class="card-header-action">
+          <a href="{{route('laporan-triwulan.index')}}" class="btn btn-danger">Lihat Detail <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Tahun</th>
+                <th>Periode</th>
+                <th>File</th>
+                <th>Created at</th>
+              </tr>
+              @foreach ($laporan_triwulans as $laporan)
+              <tr>
+                <td>{{$laporan->year}}</td>
+                <td>{{$laporan->periode}}</td>
+                <td><a class="btn btn-warning rounded btn-sm" href="{{asset('uploads/' . $laporan->filename)}}">Unduh</a></td>
+                <td>{{$laporan->created_at}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h4>Laporan Bulanan</h4>
+        <div class="card-header-action">
+          <a href="{{route('pdam-report.index')}}" class="btn btn-danger">Lihat Detail <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Tahun</th>
+                <th>Bulan</th>
+                <th>File</th>
+                <th>Created at</th>
+              </tr>
+              @foreach ($reports as $report)
+              <tr>
+                <td>{{$report->year}}</td>
+                <td>{{$report->month}}</td>
+                <td><a class="btn btn-warning rounded btn-sm" href="{{asset('uploads/' . $report->filename)}}">Unduh</a></td>
+                <td>{{$report->created_at}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{-- old version  --}}
+{{-- <div class="row">
   <div class="col-lg-8 col-md-6 col-sm-6 col-12">
     <div class="card">
       <div class="card-header">
@@ -119,6 +303,36 @@
     </div>
     <div class="card">
       <div class="card-header">
+        <h4>Laporan Triwulan</h4>
+        <div class="card-header-action">
+          <a href="{{route('laporan-triwulan.index')}}" class="btn btn-danger">Lihat Detail <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Tahun</th>
+                <th>Periode</th>
+                <th>File</th>
+                <th>Created at</th>
+              </tr>
+              @foreach ($laporan_triwulans as $laporan)
+              <tr>
+                <td>{{$laporan->year}}</td>
+                <td>{{$laporan->periode}}</td>
+                <td><a class="btn btn-warning rounded btn-sm" href="{{asset('uploads/' . $laporan->filename)}}">Unduh</a></td>
+                <td>{{$laporan->created_at}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
         <h4>Laporan Bulanan</h4>
         <div class="card-header-action">
           <a href="{{route('pdam-report.index')}}" class="btn btn-danger">Lihat Detail <i class="fas fa-chevron-right"></i></a>
@@ -148,7 +362,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 @endsection
 @push('chart')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -188,10 +402,10 @@
               label: 'Nilai Capaian Tahunan',
               data: [],
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
               ],
               borderColor: [
-                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
               ],
               borderWidth: 1
           }]
@@ -268,7 +482,7 @@
             })
         };
 
-        fetchGrafik();
+        // fetchGrafik();
         fetchGrafikTahun();
     });
 </script>

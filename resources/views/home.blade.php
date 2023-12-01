@@ -310,10 +310,10 @@
 		var chartTahun = new Chart(ctxTahun, {
 			type: 'bar',
 			data: {
-				labels: ['2020', '2021'],
+				labels: [],
 				datasets: [{
 					label: 'Nilai Capaian Tahunan',
-					data: [2.9, 3.04],
+					data: [],
 					backgroundColor: [
 						'rgba(54, 162, 235, 0.2)',
 					],

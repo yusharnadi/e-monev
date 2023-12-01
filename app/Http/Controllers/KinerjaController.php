@@ -30,7 +30,7 @@ class KinerjaController extends Controller
     public function showPeriod(Request $request)
     {
         if (!Auth::user()->can('create kinerja pdam')) abort(403);
-        $period = array('Tahunan', 'Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
+        $period = array('Tahunan');
         return view('kinerja.period', ['period' => $period]);
     }
 
@@ -189,7 +189,7 @@ class KinerjaController extends Controller
     {
         if (!Auth::user()->can('update kinerja pdam')) abort(403);
         $kinerja = $this->kinerjaService->getById($id);
-        $period = array('Tahunan', 'Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
+        $period = array('Tahunan');
         return view('kinerja.edit', ['kinerja' => $kinerja, 'period' => $period]);
     }
 

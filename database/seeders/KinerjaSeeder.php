@@ -82,8 +82,8 @@ class KinerjaSeeder extends Seeder
             "jumlah_pegawai_diklat": 55,
             "biaya_diklat": 800000000,
             "jumlah_biaya_pegawai": 20786565250,
-            "tahun": 2022,
-            "periode": "Triwulan I"
+            "tahun": 2021,
+            "periode": "Tahunan"
         }';
         $data_3 = '{
             "laba_bersih": 1800000000,
@@ -118,7 +118,7 @@ class KinerjaSeeder extends Seeder
             "jumlah_pegawai_diklat": 55,
             "biaya_diklat": 800000000,
             "jumlah_biaya_pegawai": 20786565250,
-            "tahun": 2021,
+            "tahun": 2020,
             "periode": "Tahunan"
         }';
 
