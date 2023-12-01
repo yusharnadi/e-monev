@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('pdam-report.create')}}" class="btn btn-info mb-2">Entri Laporan</a>
+                    <a href="{{route('laporan-triwulan.create')}}" class="btn btn-info mb-2">Entri Laporan</a>
                     @if (session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
                     @endif
@@ -34,8 +34,8 @@
                                 <td>{{$report->created_at}}</td>
                                 <td>
                                     <a href="{{asset('uploads/'. $report->filename)}}" class="btn btn-icon btn-sm btn-primary" target="_blank"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('pdam-report.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a data-toggles="modal" id="smallButton" data-action="{{route('pdam-report.destroy', $report->id)}}" class="btn btn-icon btn-sm btn-danger btn-fire" href="#"><i class="fas fa-trash"></i></a>
+                                    <a href="{{route('laporan-triwulan.edit', $report['id'])}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a data-toggles="modal" id="smallButton" data-action="{{route('laporan-triwulan.destroy', $report->id)}}" class="btn btn-icon btn-sm btn-danger btn-fire" href="#"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

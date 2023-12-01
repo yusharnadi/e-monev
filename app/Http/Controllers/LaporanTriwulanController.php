@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LaporanTriwulanStoreRequest;
 use App\Http\Services\LaporanTriwulanServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,15 +28,24 @@ class LaporanTriwulanController extends Controller
      */
     public function create()
     {
-        //
+        if (!Auth::user()->can('create laporan triwulan pdam')) abort(403);
+        $period = array('Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV');
+        return view('laporan_triwulan.create', ['period' => $period]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LaporanTriwulanStoreRequest $request)
     {
-        //
+        if (!Auth::user()->can('create laporan triwulan pdam')) abort(403);
+
+        $validated_request = $request->safe()->except(['_token']);
+
+        if ($this->laporanTriwulanService->create($validated_request)) {
+            return redirect()->route('laporan-triwulan.index')->with('message', 'Berhasil menambahkan data.');
+        }
+        return redirect()->route('laporan-triwulan.index')->with('error', 'Gagal menambahkan data.');
     }
 
     /**

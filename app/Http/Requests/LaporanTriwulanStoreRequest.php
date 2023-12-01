@@ -11,7 +11,7 @@ class LaporanTriwulanStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class LaporanTriwulanStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'year' => 'required',
+            'periode' => 'required',
+            'note' => '',
+            'filename' => 'required|mimes:pdf|max:5000'
         ];
     }
 }
