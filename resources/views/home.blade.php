@@ -84,7 +84,7 @@
 						<div class="row">
 							<header class="heading-holder col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 								<h1>SI PERKASA</h1>
-								<p>Optimalisasi Pembinaan (Evaluasi dan Monitoring) Perumda melalui Sistem Informasi pada Bagian Perekonomian dan SDA AMGP Kota Singkawang.</p>
+								<p>Optimalisasi Pembinaan (Monitoring dan Evaluasi) Capaian Kinerja Perumda AMGP melalui Sistem Informasi pada Bagian Perekonomian dan SDA Kota Singkawang.</p>
 								<a href="#" class="btn btn-default btn-white">Learn More</a>
 							</header>
 						</div>
@@ -96,7 +96,7 @@
 			<section class="features-area container" data-scroll-index="1">
 				<div class="row">
 					<header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
-						<h2>Aspek-aspek <br>Evaluasi <span class="text-bright">Kinerja Perumda</span></h2>
+						<h2>Aspek-aspek Evaluasi Kinerja <br> <span class="text-bright"> Perumda AMGP</span></h2>
 					</header>
 				</div>
 				<!-- Features of the page -->
@@ -166,7 +166,7 @@
 			<section class="container">
 				<div class="row sameheight-container">
 					<header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
-						<h2>Grafik Capaian Kinerja Tahunan <span class="text-bright">PDAM</span></h2>
+						<h2>Grafik Capaian Kinerja Tahunan <br><span class="text-bright">Perumda AMGP</span></h2>
 					</header>
 					<canvas id="chartTahun"></canvas>
 				</div>
@@ -249,7 +249,7 @@
 							<li><a href="https://setda.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-setda.png" alt="Logo SETDA Singkawang" class="img-responsive"></a></li>
                             <li><a href="https://kominfo.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-kominfo.png" alt="Logo kominfo singkawang" class="img-responsive"></a></li>
                             <li><a href="https://pdamgunungpoteng.com/" target="_blank"><img src="{{asset('landing')}}/images/logo-pdam.png" alt="Logo Pdam Gunung poteng singkawang" class="img-responsive"></a></li>
-                            <li><a href="http://ppid.singkawangkota.go.id/" target="_blank"><img src="{{asset('landing')}}/images/logo-ppid.png" alt="Logo ppid singkawang" class="img-responsive"></a></li>
+                            <li><a href="https://ppid.pdamgunungpoteng.com/" target="_blank"><img src="{{asset('landing')}}/images/logo-ppid.png" alt="Logo ppid singkawang" class="img-responsive"></a></li>
 						</ul>
 						<!-- Logos list of the page end -->
 					</div>
