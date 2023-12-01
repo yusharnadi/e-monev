@@ -1,10 +1,10 @@
 @extends('layouts.admin-master')
-@section('page-title', 'Upload Laporan Bulanan PDAM')
+@section('page-title', 'Edit Laporan Bulanan PDAM')
 @section('page-heading')
-  <h1>Upload Laporan Bulanan PDAM</h1>
+  <h1>Edit Laporan Bulanan PDAM</h1>
   <div class="section-header-breadcrumb">
     <div class="breadcrumb-item"><a href="{{route('pdam-report.index')}}">Laporan Bulanan</a></div>
-    <div class="breadcrumb-item">Tambah Dokumen</div>
+    <div class="breadcrumb-item">Edit Dokumen</div>
   </div>
 @endsection
 @section('content')
