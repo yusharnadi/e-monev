@@ -44,6 +44,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update laporan pdam']);
         Permission::create(['name' => 'delete laporan pdam']);
 
+        Permission::create(['name' => 'read laporan triwulan pdam']);
+        Permission::create(['name' => 'create laporan triwulan pdam']);
+        Permission::create(['name' => 'update laporan triwulan pdam']);
+        Permission::create(['name' => 'delete laporan triwulan pdam']);
+
         // create roles and assign created permissions
         // this can be done as separate statements
         $evaluator = Role::create(['name' => 'Evaluator']);
@@ -51,6 +56,7 @@ class PermissionSeeder extends Seeder
             [
                 'read monev pdam', 'create monev pdam', 'update monev pdam', 'delete monev pdam',
                 'read laporan pdam', 'create laporan pdam', 'update laporan pdam', 'delete laporan pdam',
+                'read laporan triwulan pdam', 'create laporan triwulan pdam', 'update laporan triwulan pdam', 'delete laporan triwulan pdam',
                 'read kinerja pdam', 'create kinerja pdam', 'update kinerja pdam', 'delete kinerja pdam',
                 'read user', 'create user',
             ]
@@ -61,6 +67,7 @@ class PermissionSeeder extends Seeder
             [
                 'read monev pdam',
                 'read laporan pdam',
+                'read laporan triwulan pdam',
                 'read kinerja pdam',
             ]
         );
@@ -71,6 +78,8 @@ class PermissionSeeder extends Seeder
                 'read monev pdam',
                 'read laporan pdam', 'create laporan pdam', 'update laporan pdam',
                 'read kinerja pdam', 'create kinerja pdam', 'update kinerja pdam',
+                'read laporan triwulan pdam', 'create laporan triwulan pdam', 'update laporan triwulan pdam',
+
             ]
         );
 

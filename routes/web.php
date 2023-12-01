@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KinerjaController;
+use App\Http\Controllers\LaporanTriwulanController;
 use App\Http\Controllers\MonevPdamController;
 use App\Http\Controllers\PdamReportController;
 use App\Http\Controllers\RoleController;
@@ -26,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function () {
     Route::resource('kinerja', KinerjaController::class);
     Route::resource('pdam-report', PdamReportController::class);
+    Route::resource('laporan-triwulan', LaporanTriwulanController::class);
     Route::resource('users', UserController::class);
     Route::resource('role', RoleController::class);
 
