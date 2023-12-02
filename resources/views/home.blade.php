@@ -158,7 +158,7 @@
 					<!-- Descr of the page end -->
 					<!-- img holder of the page -->
 					<div class="img-holder sameheight col-xs-12 col-sm-6">
-						<img src="http://placehold.it/765x745" alt="image description" class="img-responsive">
+						<img src="https://placehold.it/765x745" alt="image description" class="img-responsive">
 					</div>
 					<!-- img holder of the page end -->
 				</div>
