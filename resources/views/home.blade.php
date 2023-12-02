@@ -171,6 +171,28 @@
 					<canvas id="chartTahun"></canvas>
 				</div>
 			</section>
+			<div class="container" style="margin-block: 50px;">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-12">
+						<h2 class="text-center">Data Publikasi Perumda AMGP Singkawang</h2>
+						<ul class="facts-list">
+							<li>
+								<h3><span class="">{{format_angka($kinerja->jumlah_pelanggan)}}</span><span class="text-block">Pelanggan</span></h3>
+							</li>
+							<li>
+								<h3><span class="">{{format_angka($kinerja->jumlah_pegawai)}}</span><span class="text-block">Jumlah Pegawai</span></h3>
+							</li>
+							<li>
+								<h3><span class="">{{format_angka($kinerja->volume_produksi_rill)}}</span><span class="text-block">Volume Produksi</span></h3>
+							</li>
+							<li>
+								<h3><span class="">{{format_angka($kinerja->kapasitas_produksi_terpasang)}}</span><span class="text-block">Kapasistas Produksi</span></h3>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
 			<!-- Product Features of the page end -->
 			<!-- Demo block of the page -->
 			{{-- <aside class="demo-block">
@@ -203,9 +225,6 @@
 			
 			<section class="container" style="margin-top: 70px;">
 				<div class="row sameheight-container">
-					{{-- <header class="col-xs-12 heading-wrap col-sm-6 col-sm-offset-3 text-center">
-						<h2>Aplikasi <span class="text-bright">HELLO AMGP</span></h2>
-					</header> --}}
 					<div class="col-xs-12">
 						<img src="{{asset('landing')}}/images/amgp-playstore.jpeg" alt="PDAM SINGKAWANG AMGP" class="img-responsive">
 					</div>
@@ -215,6 +234,7 @@
 					</div>
 				</div>
 			</section>
+			
 			<!-- Trial block of the page -->
 			{{-- <section class="trial-block container">
 				<div class="row">
