@@ -538,11 +538,11 @@ function calculateBpspam($kinerja)
     $result['bobot_pelayanan'] = $bobot_pelayanan;
     $result['bobot_produksi'] = $bobot_produksi;
     $result['bobot_sdm'] = $bobot_sdm;
-    // $result['total_bobot'] = $bobot_keuangan + $bobot_pelayanan + $bobot_produksi + $bobot_sdm;
-    $result['total_bobot']  = $roe_bobot + $rasio_kas_bobot + $rasio_operasi_bobot + $efektifitas_penagihan_bobot + $solvabilitas_bobot +
-        $cakupan_pelayanan_bobot + $pertumbuhan_pelanggan_bobot + $penyelesaian_pengaduan_bobot + $kualitas_air_bobot + $air_domestik_bobot +
-        $efisiensi_produksi_bobot + $tingkat_kehilangan_bobot + $jam_operasi_bobot + $tekanan_air_bobot + $penggantian_bobot +
-        $rasio_pegawai_bobot + $rasio_diklat_bobot + $biaya_diklat_bobot;
+    $result['total_bobot'] = $bobot_keuangan + $bobot_pelayanan + $bobot_produksi + $bobot_sdm;
+    // $result['total_bobot']  = round($roe_bobot + $rasio_kas_bobot + $rasio_operasi_bobot + $efektifitas_penagihan_bobot + $solvabilitas_bobot +
+    //     $cakupan_pelayanan_bobot + $pertumbuhan_pelanggan_bobot + $penyelesaian_pengaduan_bobot + $kualitas_air_bobot + $air_domestik_bobot +
+    //     $efisiensi_produksi_bobot + $tingkat_kehilangan_bobot + $jam_operasi_bobot + $tekanan_air_bobot + $penggantian_bobot +
+    //     $rasio_pegawai_bobot + $rasio_diklat_bobot + $biaya_diklat_bobot, 2);
 
     if ($result['total_bobot'] <= 2.2) {
         $kategori_penilaian = 'Sakit';
