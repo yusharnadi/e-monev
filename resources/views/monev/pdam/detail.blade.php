@@ -132,7 +132,7 @@
                                     </tr>
                                     <tr>
                                         <td>3. Jam Operasi Layanan / hari</td>
-                                        <td class="text-right">{{$penilaian['jam_operasi_kondisi'] ?? 0}} %</td>
+                                        <td class="text-right">{{$penilaian['jam_operasi_kondisi'] ?? 0}} Jam</td>
                                         <td class="text-right">{{$penilaian['jam_operasi_nilai'] ?? 0}}</td>
                                         <td class="text-right">{{$penilaian['jam_operasi_bobot'] ?? 0}}</td>
                                     </tr>
