@@ -24,7 +24,7 @@
 	<!-- include the site stylesheet -->
 	<link rel="stylesheet" href="{{asset('landing')}}/css/bootstrap.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="{{asset('landing')}}/css/plugins.css">
+	{{-- <link rel="stylesheet" href="{{asset('landing')}}/css/plugins.css"> --}}
 	<!-- include the site stylesheet -->
 	<link rel="stylesheet" href="{{asset('landing')}}/css/font-awesome.min.css">
 	<!-- include the site stylesheet -->
@@ -158,7 +158,7 @@
 					<!-- Descr of the page end -->
 					<!-- img holder of the page -->
 					<div class="img-holder sameheight col-xs-12 col-sm-6">
-						<img src="https://placehold.it/765x745" alt="image description" class="img-responsive">
+						{{-- <img src="https://placehold.co/765x745" alt="image description" class="img-responsive"> --}}
 					</div>
 					<!-- img holder of the page end -->
 				</div>
@@ -323,7 +323,9 @@
 	<!-- include jQuery -->
 	<script src="{{asset('landing')}}/js/jquery.main.js"></script>
 	{{-- <div id="style-changer" data-src="style-changer.html"></div> --}}
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+	{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
 	<script>
 		
 		var ctxTahun = document.getElementById('chartTahun');
