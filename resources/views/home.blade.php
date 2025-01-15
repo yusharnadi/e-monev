@@ -303,7 +303,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
-						<p>&copy; Copyright 2023, SI PERKASA | BAGIAN PEREKONOMIAN <br>PEMERINTAH KOTA SINGKAWANG</p>
+						<p>&copy; Copyright 2023-{{date('Y')}} SI PERKASA</p>
+						<p>BAGIAN PEREKONOMIAN <br>PEMERINTAH KOTA SINGKAWANG</p>
+						<a href="https://pse.layanan.go.id/sealid/2254" target="_blank">
+							<img src="https://pse.layanan.go.id/api/storage/badge/badge_2254.png" alt="pse badge" style="height:50px;">
+						</a> 
 					</div>
 				</div>
 			</div>
